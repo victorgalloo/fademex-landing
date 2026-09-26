@@ -4,209 +4,140 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import MexicoMap from '@/components/MexicoMap'
 import { Reveal } from '@/lib/hooks'
-import { BarChart3, Zap, MapPin } from 'lucide-react'
-import Link from 'next/link'
+import { ButtonLink, Container, CtaBlock, PageHero, SectionLabel, headingClass } from '@/components/ui'
+
+const STATS = [
+  { value: 'Gran escala', label: 'Capacidad instalada' },
+  { value: '150+', label: 'Proyectos completados' },
+  { value: '20+', label: 'Estados cubiertos' },
+]
+
+const HIGHLIGHTS = [
+  {
+    sector: 'Industrial',
+    title: 'Industria de cuero y calzado',
+    location: 'León, Gto.',
+    desc: 'Sistema de 500 kWp con reducción significativa en costos energéticos.',
+    tags: ['500 kWp', '−CO₂'],
+  },
+  {
+    sector: 'Comercial',
+    title: 'Proyecto comercial',
+    location: 'Ciudad de México',
+    desc: 'Instalación de 250 kWp con encendido inmediato, ahorrando el 88% en costos de energía.',
+    tags: ['250 kWp', '88% ahorro'],
+  },
+  {
+    sector: 'Industrial',
+    title: 'Planta de ensamblaje',
+    location: 'Aguascalientes, Ags.',
+    desc: 'Planta de ensamblaje con 500 kWp, logrando un ahorro del 99% en costos de energía.',
+    tags: ['500 kWp', '99% ahorro'],
+  },
+]
 
 export default function ProyectosPage() {
   return (
-    <div className="font-sans text-ink min-h-screen bg-canvas">
-      {/* Fixed Background Elements */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div className="absolute top-0 left-0 w-[720px] h-[720px] bg-highlight/20 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-[560px] h-[560px] bg-accent-gold/30 rounded-full blur-[140px] translate-x-1/3 translate-y-1/3"></div>
-      </div>
-
+    <div className="min-h-screen bg-vellum text-carbon">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 via-canvas to-canvas"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-highlight/15 via-transparent to-accent-gold/10 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-gold/30 to-transparent"></div>
+      <Reveal>
+        <PageHero
+          label="Cobertura nacional"
+          title={
+            <>
+              Red de proyectos
+              <br />
+              activos.
+            </>
+          }
+          intro="Monitoreamos nuestros proyectos en tiempo real desde nuestro Centro de Control."
+        />
+      </Reveal>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Reveal>
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-accent-gold bg-accent-gold/20 text-ink text-[11px] font-semibold tracking-[0.15em] mb-8 uppercase shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-accent-gold mr-2.5 animate-pulse"></span>
-                Cobertura Nacional
-              </div>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-ink mb-8 leading-[1]">
-                Red de Proyectos
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold-dark via-accent-gold to-highlight">
-                  Activos
-                </span>
-              </h1>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <p className="text-lg md:text-xl text-ink-light mb-10 max-w-3xl mx-auto leading-relaxed">
-                Monitoreamos nuestros proyectos desde
-                nuestro Centro de Control en tiempo real.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-16 border-y border-ink/8">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Reveal>
-              <div className="text-center p-8 bg-canvas-alt border border-ink/8 rounded-2xl shadow-card hover:shadow-card-hover transition-all">
-                <div className="w-12 h-12 bg-accent-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4 border border-accent-gold/20">
-                  <Zap className="w-6 h-6 text-accent-gold-dark" />
+      {/* Cifras */}
+      <section className="pb-12">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-3 border-t border-carbon">
+            {STATS.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 80}>
+                <div className={`py-8 border-b md:border-b-0 border-carbon/20 ${i > 0 ? 'md:border-l md:pl-6' : ''}`}>
+                  <div className="text-[40px] md:text-display font-light leading-none mb-3">{stat.value}</div>
+                  <div className="text-sm text-mercury">{stat.label}</div>
                 </div>
-                <div className="text-3xl md:text-4xl font-bold text-ink mb-2">Gran Escala</div>
-                <div className="text-sm text-ink-light">Capacidad Instalada</div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <div className="text-center p-8 bg-canvas-alt border border-ink/8 rounded-2xl shadow-card hover:shadow-card-hover transition-all">
-                <div className="w-12 h-12 bg-accent-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4 border border-accent-gold/20">
-                  <BarChart3 className="w-6 h-6 text-accent-gold-dark" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-ink mb-2">150+</div>
-                <div className="text-sm text-ink-light">Proyectos Completados</div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <div className="text-center p-8 bg-canvas-alt border border-ink/8 rounded-2xl shadow-card hover:shadow-card-hover transition-all">
-                <div className="w-12 h-12 bg-accent-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4 border border-accent-gold/20">
-                  <MapPin className="w-6 h-6 text-accent-gold-dark" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-ink mb-2">20+</div>
-                <div className="text-sm text-ink-light">Estados Cubiertos</div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-24 md:py-32 relative overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
-            <div>
-              <Reveal>
-                <span className="inline-block text-sm text-accent-gold font-semibold uppercase tracking-widest mb-3">
-                  Cobertura Nacional
-                </span>
-                <h3 className="text-3xl md:text-4xl font-bold text-ink mb-4">
-                  Mapa de Proyectos en Operación
-                </h3>
-                <p className="text-ink-light max-w-lg">
-                  Nuestros proyectos están distribuidos estratégicamente en todo México,
-                  con monitoreo continuo desde nuestro Centro de Operaciones.
-                </p>
               </Reveal>
-            </div>
+            ))}
+          </div>
+        </Container>
+      </section>
 
-            <Reveal delay={100}>
-              <div className="flex gap-6 text-xs font-medium text-ink-light border border-ink/8 px-4 py-2.5 rounded-xl bg-canvas-alt shadow-sm">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-accent-gold rounded-full animate-pulse"></div>{' '}
-                  ACTIVOS
-                </div>
-              </div>
+      {/* Mapa */}
+      <section className="py-12 md:py-24">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-end">
+            <Reveal className="lg:col-span-7">
+              <SectionLabel className="mb-8">Mapa de proyectos en operación</SectionLabel>
+              <h2 className={headingClass}>
+                Distribuidos estratégicamente en todo México, con monitoreo continuo.
+              </h2>
+            </Reveal>
+            <Reveal delay={100} className="lg:col-span-5 lg:justify-self-end">
+              <SectionLabel tone="muted">Proyectos activos</SectionLabel>
             </Reveal>
           </div>
-
-          <Reveal delay={200}>
-            <div className="w-full aspect-[16/9] md:aspect-[2/1] relative">
+          <Reveal delay={100}>
+            <div className="w-full h-[460px] md:h-[600px]">
               <MexicoMap />
             </div>
           </Reveal>
+        </Container>
+      </section>
 
-          {/* Project Highlights */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
-            <Reveal delay={300}>
-              <div className="bg-canvas-alt border border-ink/8 rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all">
-                <div className="text-xs text-accent-gold font-semibold mb-2 uppercase tracking-wider">INDUSTRIAL</div>
-                <h4 className="text-lg font-bold text-ink mb-2">
-                  Industria de Cuero Calzado
-                </h4>
-                <p className="text-ink-light text-sm mb-4">
-                  Sistema de 500kWp con reducción significativa en costos energéticos.
-                </p>
-                <div className="flex gap-2 text-xs">
-                  <span className="px-2.5 py-1 bg-accent-gold/10 rounded-lg text-accent-gold-dark font-medium border border-accent-gold/20">500 kWp</span>
-                  <span className="px-2.5 py-1 bg-accent-gold/10 rounded-lg text-accent-gold-dark font-medium border border-accent-gold/20">-CO2</span>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={400}>
-              <div className="bg-canvas-alt border border-ink/8 rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all">
-                <div className="text-xs text-accent-gold font-semibold mb-2 uppercase tracking-wider">COMERCIAL</div>
-                <h4 className="text-lg font-bold text-ink mb-2">
-                  Proyecto Comercial - CDMX
-                </h4>
-                <p className="text-ink-light text-sm mb-4">
-                  Instalación de 250kWp con un sistema de encendido inmediato, ahorrando el 88% en costos de energía
-                </p>
-                <div className="flex gap-2 text-xs">
-                  <span className="px-2.5 py-1 bg-accent-gold/10 rounded-lg text-accent-gold-dark font-medium border border-accent-gold/20">250 kWp</span>
-                  <span className="px-2.5 py-1 bg-accent-gold/10 rounded-lg text-accent-gold-dark font-medium border border-accent-gold/20">88% Ahorro</span>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={500}>
-              <div className="bg-canvas-alt border border-ink/8 rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all">
-                <div className="text-xs text-accent-gold font-semibold mb-2 uppercase tracking-wider">INDUSTRIAL</div>
-                <h4 className="text-lg font-bold text-ink mb-2">
-                  Instalación Industrial - Aguascalientes
-                </h4>
-                <p className="text-ink-light text-sm mb-4">
-                  Planta de ensamblaje con 500kWp, logrando un ahorro del 99% en costos de energía.
-                </p>
-                <div className="flex gap-2 text-xs">
-                  <span className="px-2.5 py-1 bg-accent-gold/10 rounded-lg text-accent-gold-dark font-medium border border-accent-gold/20">500 kWp</span>
-                  <span className="px-2.5 py-1 bg-accent-gold/10 rounded-lg text-accent-gold-dark font-medium border border-accent-gold/20">99% Ahorro</span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* CTA Section */}
-          <Reveal delay={600}>
-            <div className="mt-20 text-center glass-panel p-10 md:p-12">
-              <h3 className="text-2xl md:text-3xl font-bold text-ink mb-4">
-                ¿Listo para ser parte de nuestra red?
-              </h3>
-              <p className="text-ink-light mb-8 max-w-2xl mx-auto">
-                Únete a más de 150 empresas que ya confiaron en FADEMEX para transformar su infraestructura energética.
-              </p>
-              <div className="flex gap-4 justify-center flex-wrap">
-                <Link
-                  href="/contacto"
-                  className="px-8 py-4 bg-accent-gold hover:bg-accent-gold-dark text-ink font-bold rounded-xl transition-all shadow-button hover:shadow-button-hover"
-                >
-                  Iniciar Mi Proyecto
-                </Link>
-                <Link
-                  href="/ingenieria"
-                  className="px-8 py-4 bg-canvas-alt border border-ink/10 hover:border-ink/20 hover:bg-canvas text-ink font-semibold rounded-xl transition-all shadow-card hover:shadow-card-hover"
-                >
-                  Ver Metodología
-                </Link>
-              </div>
-            </div>
+      {/* Casos destacados */}
+      <section className="py-12 md:py-24">
+        <Container>
+          <Reveal>
+            <SectionLabel className="mb-10">Casos de éxito</SectionLabel>
           </Reveal>
-        </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+            {HIGHLIGHTS.map((item, i) => (
+              <Reveal key={item.title} delay={i * 80}>
+                <article className="h-full bg-white rounded-xl p-[22px] md:p-8 flex flex-col">
+                  <div className="flex justify-between gap-4 mb-12">
+                    <SectionLabel>{item.sector}</SectionLabel>
+                    <span className="text-xs text-mercury">{item.location}</span>
+                  </div>
+                  <h3 className="text-[20px] md:text-subheading font-normal mb-3">{item.title}</h3>
+                  <p className="text-sm leading-[1.4] text-carbon/70 mb-8">{item.desc}</p>
+                  <div className="mt-auto flex flex-wrap gap-2">
+                    {item.tags.map((tag) => (
+                      <span key={tag} className="rounded-full border border-carbon px-3 py-1.5 text-xs leading-none">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-12">
+        <Container>
+          <Reveal>
+            <CtaBlock
+              title="¿Listo para ser parte de nuestra red?"
+              text="Únete a más de 150 empresas que ya confiaron en FADEMEX para transformar su infraestructura energética."
+            >
+              <ButtonLink href="/contacto" variant="light">Iniciar mi proyecto</ButtonLink>
+              <ButtonLink href="/ingenieria" variant="ghost-light">Ver metodología</ButtonLink>
+            </CtaBlock>
+          </Reveal>
+        </Container>
       </section>
 
       <Footer />
     </div>
   )
 }
-

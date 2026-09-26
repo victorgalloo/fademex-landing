@@ -47,10 +47,10 @@ export const Reveal = ({ children, className = '', delay = 0 }: RevealProps) => 
     <div
       ref={ref}
       style={delayStyle}
-      className={`transition-all duration-1000 ease-out transform ${
+      className={`transition-all duration-700 ease-out transform ${
         isVisible
-          ? 'opacity-100 translate-y-0 blur-0'
-          : 'opacity-0 translate-y-12 blur-sm'
+          ? 'opacity-100 translate-y-0'
+          : 'opacity-0 translate-y-4'
       } ${className}`}
     >
       {children}

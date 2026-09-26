@@ -1,131 +1,82 @@
-import { MapPin, Phone, Mail } from 'lucide-react'
 import Link from 'next/link'
+
+const COLUMNS = [
+  {
+    title: 'Soluciones',
+    links: [
+      { label: 'Solar Industrial', href: '/soluciones' },
+      { label: 'Almacenamiento (BESS)', href: '/servicios' },
+      { label: 'Microgrids', href: '/soluciones' },
+      { label: 'Consultoría Código de Red', href: '/tecnologia' },
+    ],
+  },
+  {
+    title: 'Compañía',
+    links: [
+      { label: 'Nosotros', href: '/' },
+      { label: 'Casos de Éxito', href: '/proyectos' },
+      { label: 'Carreras', href: '/contacto' },
+      { label: 'Noticias', href: '/proyectos' },
+    ],
+  },
+]
 
 export default function Footer() {
   return (
-    <footer className="border-t border-ink/8 bg-canvas pt-20 pb-10 text-ink">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-1">
+    <footer className="bg-onyx text-white pt-20 pb-[30px] mt-12">
+      <div className="mx-auto w-full max-w-page px-4 md:px-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/15">
+          <div className="md:col-span-5">
             <img
-              src="/logos/FADEMEX LOGOTIPOS -01.svg"
+              src="/logos/fademex-claro.svg"
               alt="FADEMEX"
-              className="h-8 w-auto mb-6"
+              className="h-10 w-auto mb-8"
             />
-            <p className="text-ink-light text-sm leading-relaxed">
+            <p className="text-sm leading-[1.4] text-white/60 max-w-xs">
               Soluciones de ingeniería energética para el sector industrial y
               comercial de México.
             </p>
           </div>
 
-          <div>
-            <h4 className="text-ink font-extrabold mb-6">Soluciones</h4>
-            <ul className="space-y-3 text-sm text-ink-light">
-              <li>
-                <Link
-                  href="/soluciones"
-                  className="hover:text-accent-gold transition-colors"
-                >
-                  Solar Industrial
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/servicios"
-                  className="hover:text-accent-gold transition-colors"
-                >
-                  Almacenamiento (BESS)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/soluciones"
-                  className="hover:text-accent-gold transition-colors"
-                >
-                  Microgrids
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/tecnologia"
-                  className="hover:text-accent-gold transition-colors"
-                >
-                  Consultoría Código de Red
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {COLUMNS.map((col) => (
+            <div key={col.title} className="md:col-span-2">
+              <h4 className="text-label uppercase text-white/50 mb-6">{col.title}</h4>
+              <ul className="space-y-3 text-sm">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <Link href={link.href} className="text-white/80 hover:text-white transition-colors">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
 
-          <div>
-            <h4 className="text-ink font-extrabold mb-6">Compañía</h4>
-            <ul className="space-y-3 text-sm text-ink-light">
+          <div className="md:col-span-3">
+            <h4 className="text-label uppercase text-white/50 mb-6">Contacto</h4>
+            <ul className="space-y-3 text-sm text-white/80">
+              <li>León, Guanajuato</li>
               <li>
-                <Link
-                  href="/"
-                  className="hover:text-accent-gold transition-colors"
-                >
-                  Nosotros
-                </Link>
+                <a href="tel:+524791369896" className="hover:text-white transition-colors">
+                  +52 (479) 136-9896
+                </a>
               </li>
               <li>
-                <Link
-                  href="/proyectos"
-                  className="hover:text-accent-gold transition-colors"
-                >
-                  Casos de Éxito
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contacto"
-                  className="hover:text-accent-gold transition-colors"
-                >
-                  Carreras
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/proyectos"
-                  className="hover:text-accent-gold transition-colors"
-                >
-                  Noticias
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-ink font-extrabold mb-6">Contacto</h4>
-            <ul className="space-y-3 text-sm text-ink-light">
-              <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-accent-gold" /> León,
-                Guanajuato
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-accent-gold" /> +52 (479)
-                136-9896
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-accent-gold" /> contacto@fademex.com
+                <a href="mailto:contacto@fademex.com" className="hover:text-white transition-colors">
+                  contacto@fademex.com
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-ink/8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-ink-light">
-            © 2025 FADEMEX Energy Systems. Todos los derechos reservados.
-          </p>
-          <div className="flex gap-6 text-xs text-ink-light">
-            <Link href="/" className="hover:text-ink transition-colors">
-              Privacidad
-            </Link>
-            <Link href="/" className="hover:text-ink transition-colors">
-              Términos
-            </Link>
-            <Link href="/" className="hover:text-ink transition-colors">
-              Sitemap
-            </Link>
+        <div className="pt-8 flex flex-col md:flex-row justify-between gap-4 text-xs text-white/50">
+          <p>© {new Date().getFullYear()} FADEMEX Energy Systems. Todos los derechos reservados.</p>
+          <div className="flex gap-6">
+            <Link href="/" className="hover:text-white transition-colors">Privacidad</Link>
+            <Link href="/" className="hover:text-white transition-colors">Términos</Link>
+            <Link href="/" className="hover:text-white transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>

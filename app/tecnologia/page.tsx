@@ -3,239 +3,134 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { Reveal } from '@/lib/hooks'
-import { Zap } from 'lucide-react'
-import Link from 'next/link'
+import { ButtonLink, Container, CtaBlock, PageHero, SectionLabel, headingClass } from '@/components/ui'
+
+const TECHNICAL_SPECS = [
+  { label: 'Eficiencia panel', val: '22.8%', desc: 'N-Type TOPCon Technology' },
+  { label: 'Degradación anual', val: '<0.4%', desc: 'Garantizada por 30 años' },
+  { label: 'Latencia monitoreo', val: '20 ms', desc: 'Actualización en tiempo real' },
+  { label: 'Densidad batería', val: '280 Ah', desc: 'LFP Prismatic Cells' },
+]
+
+const CERTIFICATIONS = [
+  'ISO 9001',
+  'Fabricantes Tier 1',
+  'Monitoreo NOC 24/7',
+  'Zero Export',
+  'Peak Shaving',
+  'Estándares UL',
+]
+
+// Curva de generación diaria (valores fijos para evitar diferencias de hidratación)
+const GENERATION = [
+  8, 10, 14, 19, 26, 34, 43, 52, 61, 69, 76, 82, 87, 91, 94, 96, 97, 95, 92, 88,
+  82, 75, 67, 58, 49, 40, 31, 23, 16, 11,
+]
+
+const LIVE_READINGS = [
+  { label: 'Frecuencia de red', value: '60.02 Hz' },
+  { label: 'Factor de potencia', value: '0.98 PF' },
+  { label: 'Temperatura', value: '32 °C' },
+]
 
 export default function TecnologiaPage() {
-  const technicalSpecs = [
-    {
-      label: 'Eficiencia Panel',
-      val: '22.8%',
-      desc: 'N-Type TOPCon Technology',
-    },
-    {
-      label: 'Degradación Anual',
-      val: '<0.4%',
-      desc: 'Garantizada por 30 años',
-    },
-    {
-      label: 'Latencia Monitoreo',
-      val: '20ms',
-      desc: 'Actualización en tiempo real',
-    },
-    {
-      label: 'Densidad Batería',
-      val: '280Ah',
-      desc: 'LFP Prismatic Cells',
-    },
-  ]
-
   return (
-    <div className="font-sans text-ink min-h-screen bg-canvas">
-      {/* Fixed Background Elements */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div className="absolute top-0 left-0 w-[720px] h-[720px] bg-highlight/20 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-[560px] h-[560px] bg-accent-gold/30 rounded-full blur-[140px] translate-x-1/3 translate-y-1/3"></div>
-      </div>
-
+    <div className="min-h-screen bg-vellum text-carbon">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 via-canvas to-canvas"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-highlight/15 via-transparent to-accent-gold/10 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-gold/30 to-transparent"></div>
+      <Reveal>
+        <PageHero
+          label="Tecnología de vanguardia"
+          title={
+            <>
+              Especificaciones
+              <br />
+              técnicas.
+            </>
+          }
+          intro="Utilizamos componentes Tier 1 clasificados por Bloomberg NEF. Cada inversor, panel y estructura es auditado para cumplir con estándares internacionales IEC y UL."
+        />
+      </Reveal>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Reveal>
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-accent-gold bg-accent-gold/20 text-ink text-[11px] font-semibold tracking-[0.15em] mb-8 uppercase shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-accent-gold mr-2.5 animate-pulse"></span>
-                Tecnología de Vanguardia
-              </div>
-            </Reveal>
-
-            <Reveal delay={100}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-ink mb-8 leading-[1]">
-                Especificaciones
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold-dark via-accent-gold to-highlight">
-                  Técnicas
-                </span>
-              </h1>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <p className="text-lg md:text-xl text-ink-light mb-10 max-w-3xl mx-auto leading-relaxed">
-                Utilizamos componentes Tier 1 clasificados por Bloomberg NEF.
-                Cada inversor, panel y estructura es auditada para cumplir
-                con estándares internacionales IEC y UL.
-              </p>
-            </Reveal>
+      {/* Certificaciones */}
+      <section className="pb-12">
+        <Container>
+          <div className="flex flex-wrap gap-x-8 gap-y-3 pt-6 border-t border-carbon/20">
+            {CERTIFICATIONS.map((c) => (
+              <SectionLabel key={c} tone="muted">{c}</SectionLabel>
+            ))}
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Ticker/Stats Strip */}
-      <div className="border-y border-ink/8 bg-canvas-alt/50 backdrop-blur-sm overflow-hidden">
-        <div className="container mx-auto flex whitespace-nowrap py-4 overflow-hidden">
-          <div
-            className="flex gap-16 items-center opacity-60 hover:opacity-100 transition-opacity"
-            style={{
-              animation: 'translateX 30s linear infinite',
-            }}
-          >
-            {[
-              'ISO 9001 Certified',
-              'Tier 1 Manufacturers',
-              '24/7 Monitoreo NOC',
-              'Zero Export Capability',
-              'Peak Shaving Algorithms',
-              'Estándares UL',
-            ].map((tag, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 text-sm font-medium text-ink-light"
-              >
-                <Zap className="w-3 h-3 text-accent-gold" /> {tag}
-              </div>
-            ))}
-            {[
-              'ISO 9001 Certified',
-              'Tier 1 Manufacturers',
-              '24/7 Monitoreo NOC',
-              'Zero Export Capability',
-              'Peak Shaving Algorithms',
-              'Estándares UL',
-            ].map((tag, i) => (
-              <div
-                key={`dup-${i}`}
-                className="flex items-center gap-2 text-sm font-medium text-ink-light"
-              >
-                <Zap className="w-3 h-3 text-accent-gold" /> {tag}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Technical Specifications */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row gap-16">
-            {/* Left: Specs Cards */}
-            <div className="lg:w-1/3">
+      <section className="py-12 md:py-24">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+            {/* Tabla de especificaciones */}
+            <div className="lg:col-span-5">
               <Reveal>
-                <h3 className="text-3xl font-bold text-ink mb-6">
-                  Especificaciones Técnicas
-                </h3>
-                <p className="text-ink-light mb-8 leading-relaxed">
-                  Cada componente es seleccionado bajo criterios rigurosos de eficiencia, durabilidad y certificación internacional.
+                <SectionLabel className="mb-8">Componentes</SectionLabel>
+                <h2 className={`${headingClass} mb-6`}>Seleccionados bajo criterios rigurosos.</h2>
+                <p className="text-base leading-[1.4] text-carbon/80 mb-10">
+                  Eficiencia, durabilidad y certificación internacional en cada componente.
                 </p>
-                <div className="space-y-4">
-                  {technicalSpecs.map((spec, i) => (
-                    <div
-                      key={i}
-                      className="flex justify-between items-center p-4 rounded-xl bg-canvas-alt border border-ink/8 shadow-card hover:shadow-card-hover transition-all"
-                    >
+              </Reveal>
+              <Reveal delay={100}>
+                <dl className="border-t border-carbon">
+                  {TECHNICAL_SPECS.map((spec) => (
+                    <div key={spec.label} className="flex items-end justify-between gap-6 py-5 border-b border-carbon">
                       <div>
-                        <div className="text-xs text-ink/60 uppercase">
-                          {spec.label}
-                        </div>
-                        <div className="text-xs text-accent-gold drop-shadow-[0_1px_0_rgba(45,47,48,0.65)]">
-                          {spec.desc}
-                        </div>
+                        <dt className="text-base">{spec.label}</dt>
+                        <dd className="text-xs text-mercury mt-1">{spec.desc}</dd>
                       </div>
-                      <div className="text-xl font-mono font-bold text-ink">
-                        {spec.val}
-                      </div>
+                      <dd className="text-[32px] font-light leading-none">{spec.val}</dd>
                     </div>
                   ))}
-                </div>
+                </dl>
               </Reveal>
             </div>
 
-            {/* Right: Dashboard Preview */}
-            <div className="lg:w-2/3">
+            {/* Vista del panel de monitoreo */}
+            <div className="lg:col-span-7">
               <Reveal delay={200}>
-                <div className="relative rounded-xl overflow-hidden border border-ink/10 shadow-2xl bg-white">
-                  <div className="bg-ink/5 px-4 py-2 flex items-center gap-2 border-b border-ink/10">
-                    <div className="flex gap-1.5">
-                      <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>
-                      <div className="w-2.5 h-2.5 rounded-full bg-green-500/50"></div>
-                    </div>
-                    <div className="ml-4 px-3 py-0.5 rounded bg-ink/5 text-[10px] text-ink/70 font-mono border border-ink/10 flex-1 text-center">
-                      dashboard.fademex.cloud/live-view
-                    </div>
+                <div className="bg-white rounded-xl p-[22px] md:p-8">
+                  <div className="flex items-center justify-between gap-4 pb-6 mb-8 border-b border-carbon/15">
+                    <SectionLabel>Monitoreo en vivo</SectionLabel>
+                    <span className="text-xs text-mercury">dashboard.fademex.cloud/live-view</span>
                   </div>
-                  <div className="p-6">
-                    {/* Chart Simulation */}
-                    <div className="flex items-end justify-between h-48 gap-1 mb-6">
-                      {[...Array(30)].map((_, i) => (
-                        <div
-                          key={i}
-                          className="bg-accent-gold/20 hover:bg-accent-gold transition-colors w-full rounded-t-sm relative group"
-                          style={{ height: `${30 + Math.random() * 70}%` }}
-                        >
-                          {i % 5 === 0 && (
-                            <div className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-ink/60 opacity-0 group-hover:opacity-100 transition-opacity">
-                              {Math.floor(Math.random() * 100)}kW
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-3 gap-4">
-                      <div className="p-4 rounded bg-ink/5 border border-ink/10">
-                        <div className="text-[10px] text-ink/60 uppercase">
-                          Frecuencia de Red
-                        </div>
-                        <div className="text-lg text-ink font-mono">
-                          60.02 Hz
-                        </div>
+                  <div className="flex items-end justify-between h-48 gap-1 mb-8" aria-hidden="true">
+                    {GENERATION.map((value, i) => (
+                      <div
+                        key={i}
+                        className="w-full rounded-t-[2px] bg-carbon/15 hover:bg-carbon transition-colors"
+                        style={{ height: `${value}%` }}
+                      />
+                    ))}
+                  </div>
+                  <div className="grid grid-cols-3 border-t border-carbon/15">
+                    {LIVE_READINGS.map((r, i) => (
+                      <div key={r.label} className={`pt-5 ${i > 0 ? 'pl-4 border-l border-carbon/15' : ''}`}>
+                        <div className="text-xs text-mercury mb-2">{r.label}</div>
+                        <div className="text-[20px] md:text-subheading font-light">{r.value}</div>
                       </div>
-                      <div className="p-4 rounded bg-ink/5 border border-ink/10">
-                        <div className="text-[10px] text-ink/60 uppercase">
-                          Factor de Potencia
-                        </div>
-                        <div className="text-lg text-ink font-mono">
-                          0.98 PF
-                        </div>
-                      </div>
-                      <div className="p-4 rounded bg-ink/5 border border-ink/10">
-                        <div className="text-[10px] text-ink/60 uppercase">
-                          Temperatura
-                        </div>
-                        <div className="text-lg text-ink font-mono">
-                          32°C
-                        </div>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </Reveal>
 
-              {/* Additional Info Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
                 <Reveal delay={300}>
-                  <div className="bg-ink/5 border border-ink/10 rounded-xl p-6 hover:border-accent-gold/30 transition-all">
-                    <h4 className="text-lg font-bold text-ink mb-3">
-                      Monitoreo en Tiempo Real
-                    </h4>
-                    <p className="text-ink/70 text-sm leading-relaxed">
+                  <div className="h-full bg-white rounded-xl p-[22px] md:p-8">
+                    <h3 className="text-base font-normal mb-3">Monitoreo en tiempo real</h3>
+                    <p className="text-sm leading-[1.4] text-carbon/70">
                       Sistema de monitoreo 24/7 con alertas automáticas y análisis predictivo de fallas.
                     </p>
                   </div>
                 </Reveal>
-
                 <Reveal delay={400}>
-                  <div className="bg-ink/5 border border-ink/10 rounded-xl p-6 hover:border-accent-gold/30 transition-all">
-                    <h4 className="text-lg font-bold text-ink mb-3">
-                      Certificaciones Internacionales
-                    </h4>
-                    <p className="text-ink/70 text-sm leading-relaxed">
+                  <div className="h-full bg-white rounded-xl p-[22px] md:p-8">
+                    <h3 className="text-base font-normal mb-3">Certificaciones internacionales</h3>
+                    <p className="text-sm leading-[1.4] text-carbon/70">
                       Todos nuestros componentes cumplen con IEC 61215, IEC 61730 y estándares UL.
                     </p>
                   </div>
@@ -243,33 +138,21 @@ export default function TecnologiaPage() {
               </div>
             </div>
           </div>
+        </Container>
+      </section>
 
-          {/* CTA Section */}
-          <Reveal delay={500}>
-            <div className="mt-20 text-center bg-gradient-to-r from-accent-gold/10 via-white/70 to-white/80 border border-ink/10 rounded-3xl p-12 backdrop-blur-sm shadow-2xl">
-              <h3 className="text-3xl font-bold text-ink mb-4">
-                ¿Quieres conocer más detalles técnicos?
-              </h3>
-              <p className="text-ink/70 mb-8 max-w-2xl mx-auto">
-                Descarga nuestras especificaciones técnicas completas o agenda una sesión con nuestros ingenieros.
-              </p>
-              <div className="flex gap-4 justify-center flex-wrap">
-                <Link
-                  href="/contacto"
-                  className="px-8 py-4 bg-accent-gold hover:bg-highlight text-ink font-extrabold rounded-md transition-all shadow-[0_20px_40px_rgba(225,235,163,0.35)]"
-                >
-                  Consultar con Ingeniero
-                </Link>
-                <Link
-                  href="/servicios"
-                  className="px-8 py-4 border border-ink/20 hover:bg-ink/5 text-ink font-semibold rounded-md transition-all"
-                >
-                  Ver Catálogo de Servicios
-                </Link>
-              </div>
-            </div>
+      <section className="py-12">
+        <Container>
+          <Reveal>
+            <CtaBlock
+              title="¿Quieres conocer más detalles técnicos?"
+              text="Solicita nuestras especificaciones técnicas completas o agenda una sesión con nuestros ingenieros."
+            >
+              <ButtonLink href="/contacto" variant="light">Consultar con un ingeniero</ButtonLink>
+              <ButtonLink href="/servicios" variant="ghost-light">Ver catálogo de servicios</ButtonLink>
+            </CtaBlock>
           </Reveal>
-        </div>
+        </Container>
       </section>
 
       <Footer />

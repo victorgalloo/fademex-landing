@@ -3,374 +3,269 @@
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import { Reveal } from '@/lib/hooks'
-import { Zap, Check, Shield, Activity, Settings } from 'lucide-react'
-import Link from 'next/link'
+import {
+  ButtonLink,
+  Container,
+  CtaBlock,
+  PageHero,
+  SectionLabel,
+  SquareList,
+  headingClass,
+} from '@/components/ui'
+
+const SOLAR_SERVICES = [
+  'Consultoría energética',
+  'Instalación de paneles solares',
+  'Monitoreo y sistemas inteligentes',
+  'Financiamiento y gestión energética',
+]
+
+const PANEL_BRANDS = [
+  { name: 'Longi', logo: '/logos/brands/longi-logo-png_seeklogo-448395.png' },
+  { name: 'Trina Solar', logo: '/logos/brands/Trina_Solar_logo.svg.png' },
+  { name: 'Jinko Solar', logo: '/logos/brands/Jinko_Solar_logo.svg' },
+  { name: 'JA Solar', logo: '/logos/brands/JA-solar-vico-export-solar_energy.png' },
+  { name: 'Canadian Solar', logo: '/logos/brands/logo-canadian-solar.png' },
+  { name: 'First Solar', logo: '/logos/brands/First_Solar_logo.svg.png' },
+]
+
+const INVERTER_BRANDS = [
+  { name: 'Fronius', logo: '/logos/brands/Fronius-logo.png' },
+  { name: 'Huawei', logo: '/logos/brands/Huawei-Logo.wine.png' },
+  { name: 'SMA', logo: '/logos/brands/Logo_SMA.svg.png' },
+]
+
+const BATTERY_USES = [
+  {
+    title: 'Reducción de picos de demanda',
+    meta: 'Peak shaving · Time shifting',
+    desc: 'Las baterías almacenan energía en periodos de bajo consumo y la liberan en horarios punta, reduciendo costos operativos y evitando cargos por alta demanda.',
+  },
+  {
+    title: 'Continuidad operativa',
+    meta: 'Respaldo inmediato',
+    desc: 'Aseguran operación continua al activar energía de respaldo inmediatamente ante cortes, protegiendo procesos sensibles y evitando tiempos de inactividad.',
+  },
+  {
+    title: 'Autonomía y protección ante variaciones',
+    meta: 'Estabilidad de voltaje',
+    desc: 'Ofrecen respaldo ante fluctuaciones de voltaje, garantizando estabilidad para equipos críticos y prolongando la vida útil de la maquinaria.',
+  },
+]
+
+function BrandTile({ name, logo }: { name: string; logo: string }) {
+  return (
+    <div className="group bg-white rounded-xl h-24 p-5 flex items-center justify-center">
+      <img
+        src={logo}
+        alt={name}
+        className="max-h-full max-w-full object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
+      />
+    </div>
+  )
+}
+
+function ChapterHeader({ number, title }: { number: string; title: string }) {
+  return (
+    <div className="flex items-baseline gap-6 border-t border-carbon pt-6 mb-12">
+      <span className="text-label text-mercury">{number}</span>
+      <h2 className="text-[40px] md:text-display font-light leading-none">{title}</h2>
+    </div>
+  )
+}
 
 export default function ServiciosPage() {
   return (
-    <div className="font-sans text-ink min-h-screen bg-canvas">
-      {/* Fixed Background Elements */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div className="absolute top-0 left-0 w-[720px] h-[720px] bg-highlight/20 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-[560px] h-[560px] bg-accent-gold/30 rounded-full blur-[140px] translate-x-1/3 translate-y-1/3"></div>
-      </div>
-
+    <div className="min-h-screen bg-vellum text-carbon">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 via-canvas to-canvas"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-highlight/15 via-transparent to-accent-gold/10 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-gold/30 to-transparent"></div>
+      <Reveal>
+        <PageHero
+          label="Catálogo de soluciones energéticas"
+          title={
+            <>
+              Consultoría y energía
+              <br />
+              solar 360°.
+            </>
+          }
+          intro="Somos Fademex, una empresa mexicana especializada en paneles solares y consultoría energética: soluciones integrales para optimizar el consumo eléctrico de las empresas y fomentar el uso de energías limpias."
+        />
+      </Reveal>
 
-        <div className="container mx-auto px-6 relative z-10 text-center">
+      {/* 01. Energía solar */}
+      <section className="py-12 md:py-24">
+        <Container>
           <Reveal>
-            <span className="inline-block text-sm text-accent-gold font-semibold uppercase tracking-widest mb-3">
-              Catálogo de Soluciones Energéticas 2025
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-ink mb-6">
-              CATÁLOGO DE SERVICIOS
-            </h1>
-            <p className="text-lg md:text-xl text-ink-light max-w-3xl mx-auto">
-              Consultoría y Energía Solar 360°
-            </p>
+            <ChapterHeader number="01" title="Energía solar" />
           </Reveal>
-        </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <Reveal>
+              <h3 className={headingClass}>Energía que transforma.</h3>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="space-y-4 text-base leading-[1.4] text-carbon/80">
+                <p>
+                  Impulsamos la transición energética de las empresas a través de la
+                  venta e instalación de paneles solares de alto rendimiento.
+                </p>
+                <p>
+                  Más que un proveedor, somos una consultoría energética 360° que analiza
+                  a fondo el consumo y las oportunidades de cada cliente para diseñar
+                  soluciones personalizadas que maximizan el ahorro, optimizan la
+                  eficiencia y contribuyen a un futuro más sustentable.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Servicios solares */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 mb-24">
+            {SOLAR_SERVICES.map((service, i) => (
+              <Reveal key={service} delay={i * 80}>
+                <div className="h-full bg-white rounded-xl p-[22px] flex flex-col justify-between min-h-[160px]">
+                  <span className="text-label text-mercury">{String(i + 1).padStart(2, '0')}</span>
+                  <h4 className="text-base font-normal">{service}</h4>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Marcas */}
+          <Reveal>
+            <SectionLabel className="mb-8">Nuestras marcas</SectionLabel>
+            <h3 className={`${headingClass} max-w-2xl mb-12`}>
+              Paneles solares e inversores de fabricantes Tier 1.
+            </h3>
+          </Reveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-24">
+            <Reveal className="lg:col-span-7">
+              <div className="text-label uppercase border-b border-carbon pb-4 mb-6">
+                Paneles solares de 580 W a 660 W
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                {PANEL_BRANDS.map((brand) => (
+                  <BrandTile key={brand.name} {...brand} />
+                ))}
+              </div>
+            </Reveal>
+            <Reveal delay={100} className="lg:col-span-5">
+              <div className="text-label uppercase border-b border-carbon pb-4 mb-6">
+                Inversores · Premium partner
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-2 gap-2">
+                {INVERTER_BRANDS.map((brand) => (
+                  <BrandTile key={brand.name} {...brand} />
+                ))}
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Tipos de instalación */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+            <Reveal>
+              <div className="h-full bg-white rounded-xl p-[22px] md:p-10">
+                <SectionLabel className="mb-10">Comercial</SectionLabel>
+                <h4 className="text-[20px] md:text-subheading font-normal mb-4">Instalaciones comerciales</h4>
+                <p className="text-sm leading-[1.4] text-carbon/70 mb-8">
+                  Seleccionamos la planificación de componentes óptima para asegurar la
+                  máxima eficiencia y longevidad de tu sistema comercial. Nuestras
+                  instalaciones cumplen con nuestros estándares y directrices, respetando
+                  las normativas actuales.
+                </p>
+                <SquareList
+                  items={[
+                    'Instalaciones en lámina, losa, sin perforaciones y terracería',
+                    'Disponible como Carport y BIPV (Building Integrated Photovoltaic)',
+                    'Componentes de máxima eficiencia',
+                  ]}
+                />
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <div className="h-full bg-white rounded-xl p-[22px] md:p-10">
+                <SectionLabel className="mb-10">Industrial</SectionLabel>
+                <h4 className="text-[20px] md:text-subheading font-normal mb-4">Instalaciones industriales</h4>
+                <p className="text-sm leading-[1.4] text-carbon/70 mb-8">
+                  Seleccionamos la planificación óptima de componentes para asegurar la
+                  máxima eficiencia y durabilidad de tu sistema industrial de alta
+                  resistencia, conforme a las normativas vigentes.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Fronius Symo', 'SMA CORE1'].map((model) => (
+                    <span key={model} className="rounded-full border border-carbon px-3 py-1.5 text-xs leading-none">
+                      {model}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
       </section>
 
-      {/* Services Content */}
-      <section className="py-16 md:py-24 relative">
-        <div className="container mx-auto px-6">
-          {/* 01. ENERGÍA SOLAR */}
-          <div className="mb-32">
-            <Reveal>
-              <div className="flex items-center gap-4 mb-12">
-                <span className="text-6xl font-bold text-accent-gold/20 drop-shadow-[0_2px_6px_rgba(45,47,48,0.35)]">01.</span>
-                <h3 className="text-4xl md:text-5xl font-bold text-ink">
-                  ENERGÍA SOLAR
-                </h3>
+      {/* 02. Baterías */}
+      <section className="py-12 md:py-24">
+        <Container>
+          <Reveal>
+            <ChapterHeader number="02" title="Baterías" />
+          </Reveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="lg:col-span-7">
+              <Reveal>
+                <h3 className={`${headingClass} mb-10`}>Sistemas de almacenamiento de energía.</h3>
+              </Reveal>
+              <div className="border-t border-carbon">
+                {BATTERY_USES.map((use, i) => (
+                  <Reveal key={use.title} delay={i * 80}>
+                    <div className="py-6 border-b border-carbon">
+                      <div className="text-label uppercase text-mercury mb-2">{use.meta}</div>
+                      <h4 className="text-[20px] font-normal mb-3">{use.title}</h4>
+                      <p className="text-sm leading-[1.4] text-carbon/70">{use.desc}</p>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+
+            <Reveal delay={100} className="lg:col-span-5">
+              <div className="bg-carbon text-white rounded-xl p-[22px] md:p-10">
+                <SectionLabel tone="light" className="mb-12">Distribuidores oficiales de Fortress Power</SectionLabel>
+                <div className="text-[40px] md:text-display font-light leading-none mb-2">eSpire 280</div>
+                <div className="text-sm text-white/60 mb-12">Energía nominal 279.5 kWh</div>
+                <h4 className="text-base font-normal mb-2">Baterías comerciales e industriales</h4>
+                <p className="text-sm leading-[1.4] text-white/70 mb-8">
+                  Almacenamiento inteligente y limpio para energías renovables.
+                </p>
+                <SquareList
+                  className="text-white/80"
+                  items={[
+                    'Autonomía y protección ante variaciones',
+                    'Continuidad operativa',
+                    'Reducción de picos de demanda',
+                  ]}
+                />
               </div>
             </Reveal>
-
-            {/* Main Description */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-              <Reveal delay={100}>
-                <div className="bg-canvas-alt border border-ink/8 rounded-2xl p-8 shadow-card">
-                  <h4 className="text-2xl font-bold text-ink mb-4">
-                    ENERGÍA QUE TRANSFORMA.
-                  </h4>
-                  <p className="text-ink-light leading-relaxed mb-4">
-                    Somos Fademex. Una empresa mexicana especializada en paneles
-                    solares y consultoría energética 360°, ofrecemos soluciones
-                    integrales para optimizar el consumo eléctrico en empresas y
-                    fomentar el uso de energías limpias.
-                  </p>
-                  <p className="text-ink-light leading-relaxed">
-                    Nos especializamos en hacer análisis energéticos en las empresas,
-                    cada vez acercándonos más a ser referentes de sostenibilidad y
-                    energía limpia en México.
-                  </p>
-                </div>
-              </Reveal>
-
-              <Reveal delay={200}>
-                <div className="bg-canvas-alt border border-ink/8 rounded-2xl p-8 shadow-card">
-                  <h4 className="text-xl font-bold text-ink mb-6">
-                    APLICACIONES DE ENERGÍA SOLAR
-                  </h4>
-                  <p className="text-ink-light leading-relaxed mb-6">
-                    Impulsamos la transición energética de las empresas a través de
-                    la venta e instalación de paneles solares de alto rendimiento.
-                    Más que un proveedor, somos una consultoría energética 360° que
-                    analiza a fondo el consumo y las oportunidades de cada cliente
-                    para diseñar soluciones personalizadas que maximizan el ahorro,
-                    optimizan la eficiencia y contribuyen a un futuro más sustentable.
-                  </p>
-                  <p className="text-sm text-accent-gold">
-                    A continuación te mostramos los servicios que ofrecemos en
-                    energía solar.
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Solar Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              {[
-                'CONSULTORÍA ENERGÉTICA',
-                'INSTALACIÓN DE PANELES SOLARES',
-                'MONITOREO Y SISTEMAS INTELIGENTES',
-                'FINANCIAMIENTO Y GESTIÓN ENERGÉTICA',
-              ].map((service, i) => (
-                <Reveal key={i} delay={i * 100}>
-                  <div className="bg-canvas-alt border border-ink/8 rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all group">
-                    <div className="w-11 h-11 bg-accent-gold/10 rounded-xl flex items-center justify-center mb-4 border border-accent-gold/20 group-hover:bg-accent-gold/15 transition-colors">
-                      <Zap className="w-5 h-5 text-accent-gold-dark" />
-                    </div>
-                    <h5 className="text-sm font-bold text-ink uppercase tracking-wide">
-                      {service}
-                    </h5>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-
-            {/* Brands Section */}
-            <Reveal>
-              <div className="glass-panel p-8 md:p-12 mb-16">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-accent-gold font-bold tracking-widest text-sm drop-shadow-[0_1px_0_rgba(45,47,48,0.65)]">01. ENERGÍA SOLAR</span>
-                </div>
-
-                <h4 className="text-3xl md:text-4xl font-bold text-ink mb-12 max-w-2xl">
-                  NUESTRAS MARCAS DE <span className="text-accent-gold">PANELES SOLARES</span> E INVERSORES
-                </h4>
-
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 relative">
-
-                  {/* Center Divider for large screens */}
-                  <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-ink/10 to-transparent -translate-x-1/2"></div>
-
-                  {/* Left Column: Solar Panels */}
-                  <div>
-                    <h5 className="text-sm text-ink/70 font-bold tracking-widest uppercase mb-8 border-b border-ink/10 pb-4">
-                      PANELES SOLARES DE 580 W A 660W
-                    </h5>
-
-                    {/* Solar Logos Grid */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                      {[
-                        { name: 'Longi', logo: '/logos/brands/longi-logo-png_seeklogo-448395.png' },
-                        { name: 'Trina Solar', logo: '/logos/brands/Trina_Solar_logo.svg.png' },
-                        { name: 'Jinko Solar', logo: '/logos/brands/Jinko_Solar_logo.svg' },
-                        { name: 'JA Solar', logo: '/logos/brands/JA-solar-vico-export-solar_energy.png' },
-                        { name: 'Canadian Solar', logo: '/logos/brands/logo-canadian-solar.png' },
-                        { name: 'First Solar', logo: '/logos/brands/First_Solar_logo.svg.png' },
-                      ].map((brand, i) => (
-                        <div
-                          key={i}
-                          className="group bg-white rounded-xl p-4 flex items-center justify-center h-20 transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-                        >
-                          <img
-                            src={brand.logo}
-                            alt={brand.name}
-                            className="max-h-full max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Right Column: Inverters */}
-                  <div>
-                    <h5 className="text-sm text-ink/70 font-bold tracking-widest uppercase mb-8 border-b border-ink/10 pb-4">
-                      INVERSORES
-                    </h5>
-
-                    {/* Inverter List */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
-                      {[
-                        { name: 'Fronius', logo: '/logos/brands/Fronius-logo.png' },
-                        { name: 'Huawei', logo: '/logos/brands/Huawei-Logo.wine.png' },
-                        { name: 'SMA', logo: '/logos/brands/Logo_SMA.svg.png' },
-                      ].map((inv, i) => (
-                        <div key={i} className="flex flex-col items-center text-center group">
-                          <div className="bg-white rounded-xl p-4 w-full h-24 flex items-center justify-center mb-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-                            <img
-                              src={inv.logo}
-                              alt={inv.name}
-                              className="max-h-12 max-w-full object-contain opacity-90 group-hover:opacity-100 transition-opacity"
-                            />
-                          </div>
-
-                          {/* Flag and Text */}
-                          <div className="text-[10px] font-bold text-ink/60 tracking-widest uppercase">
-                            PREMIUM PARTNER
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Installation Types */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <Reveal delay={100}>
-                <div className="bg-ink/5 border border-ink/10 rounded-2xl p-8 hover:border-accent-gold/30 transition-all">
-                  <h4 className="text-2xl font-bold text-ink mb-4">
-                    INSTALACIONES COMERCIALES
-                  </h4>
-                  <p className="text-ink/80 mb-6 leading-relaxed">
-                    Seleccionamos la planificación de componentes óptima para
-                    asegurar la máxima eficiencia y longevidad de tu sistema
-                    comercial a lo largo de los años. Nuestras instalaciones
-                    comerciales cumplen con nuestros estándares y directrices,
-                    respetando las normativas actuales.
-                  </p>
-                  <ul className="space-y-2 text-sm text-ink/70">
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-accent-gold" />
-                      Instalaciones en lámina, losa, sin perforaciones, terracería
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-accent-gold" />
-                      Disponible como Carport y BIPV (Building Integrated
-                      Photovoltaic)
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-accent-gold" />
-                      Componentes de máxima eficiencia
-                    </li>
-                  </ul>
-                </div>
-              </Reveal>
-
-              <Reveal delay={200}>
-                <div className="bg-ink/5 border border-ink/10 rounded-2xl p-8 hover:border-accent-gold/30 transition-all">
-                  <h4 className="text-2xl font-bold text-ink mb-4">
-                    INSTALACIONES INDUSTRIALES
-                  </h4>
-                  <p className="text-ink/80 mb-6 leading-relaxed">
-                    Seleccionamos la planificación óptima de componentes para
-                    asegurar la máxima eficiencia y durabilidad de tu sistema
-                    industrial de alta resistencia.
-                  </p>
-                  <p className="text-ink/70 mb-6 text-sm leading-relaxed">
-                    Nuestras instalaciones comerciales cumplen con los estándares y
-                    lineamientos de conformidad con las normativas actuales vigentes.
-                  </p>
-                  <div className="flex gap-4">
-                    <div className="px-4 py-2 bg-accent-gold/10 border border-accent-gold/30 rounded text-sm text-accent-gold font-bold">
-                      Fronius Symo
-                    </div>
-                    <div className="px-4 py-2 bg-accent-gold/10 border border-accent-gold/30 rounded text-sm text-accent-gold font-bold">
-                      SMA CORE1
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
           </div>
+        </Container>
+      </section>
 
-          {/* 02. BATERÍAS */}
-          <div className="mb-32">
-            <Reveal>
-              <div className="flex items-center gap-4 mb-12">
-                <span className="text-6xl font-bold text-accent-gold/20 drop-shadow-[0_2px_6px_rgba(45,47,48,0.35)]">02.</span>
-                <h3 className="text-4xl md:text-5xl font-bold text-ink">
-                  BATERÍAS
-                </h3>
-              </div>
-            </Reveal>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-              <Reveal delay={100}>
-                <div className="bg-gradient-to-br from-accent-gold/10 to-transparent border border-accent-gold/30 rounded-2xl p-8">
-                  <h4 className="text-2xl font-bold text-ink mb-6">
-                    SISTEMAS DE ALMACENAMIENTO DE ENERGÍA
-                  </h4>
-                  <div className="space-y-6">
-                    <div>
-                      <h5 className="text-sm font-bold text-accent-gold uppercase mb-2">
-                        REDUCCIÓN DE PICOS DE DEMANDA (PEAK SHAVING - TIME SHIFTING)
-                      </h5>
-                      <p className="text-ink/80 text-sm leading-relaxed">
-                        Las baterías almacenan energía en períodos de bajo consumo y
-                        la liberan en horarios punta, reduciendo costos operativos y
-                        evitando cargos por alta demanda.
-                      </p>
-                    </div>
-                    <div>
-                      <h5 className="text-sm font-bold text-accent-gold uppercase mb-2">
-                        CONTINUIDAD OPERATIVA
-                      </h5>
-                      <p className="text-ink/80 text-sm leading-relaxed">
-                        Las baterías aseguran operación continua al activar energía de
-                        respaldo inmediatamente ante cortes, protegiendo procesos
-                        sensibles y evitando tiempos de inactividad.
-                      </p>
-                    </div>
-                    <div>
-                      <h5 className="text-sm font-bold text-accent-gold uppercase mb-2">
-                        AUTONOMÍA Y PROTECCIÓN ANTE VARIACIONES
-                      </h5>
-                      <p className="text-ink/80 text-sm leading-relaxed">
-                        Ofrecen respaldo en caso de fluctuaciones de voltaje,
-                        garantizando estabilidad para equipos críticos y prolongando
-                        la vida útil de la maquinaria.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-
-              <Reveal delay={200}>
-                <div className="bg-ink/5 border border-ink/10 rounded-2xl p-8">
-                  <div className="text-center mb-8">
-                    <div className="inline-block px-4 py-2 bg-accent-gold/10 border border-accent-gold/30 rounded-lg mb-4">
-                      <span className="text-sm text-accent-gold font-bold uppercase">
-                        Distribuidores Oficiales de Fortress Power
-                      </span>
-                    </div>
-                  </div>
-                  <div className="bg-ink/5 border border-ink/10 rounded-xl p-6 mb-6">
-                    <h5 className="text-xl font-bold text-ink mb-2">
-                      eSpire 280
-                    </h5>
-                    <p className="text-ink/70 text-sm">
-                      Energía nominal 279,5 kWh
-                    </p>
-                  </div>
-                  <h4 className="text-xl font-bold text-ink mb-4">
-                    BATERÍAS COMERCIALES E INDUSTRIALES
-                  </h4>
-                  <p className="text-ink/80 mb-6">
-                    Almacenamiento inteligente y limpio para energías renovables.
-                  </p>
-                  <div className="space-y-2 text-sm">
-                    {[
-                      'AUTONOMÍA Y PROTECCIÓN ANTE VARIACIONES',
-                      'CONTINUIDAD OPERATIVA',
-                      'REDUCCIÓN DE PICOS DE DEMANDA',
-                    ].map((feature, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center gap-2 text-accent-gold"
-                      >
-                        <Check className="w-4 h-4" />
-                        {feature}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Bottom Tagline */}
-        <Reveal>
-          <div className="text-center py-12 border-t border-ink/10">
-            <div className="flex justify-center items-center gap-4 text-2xl font-bold mb-8">
-              <span className="text-ink">ENERGÍA</span>
-              <span className="text-accent-gold">/</span>
-              <span className="text-ink">CONFIANZA</span>
-              <span className="text-accent-gold">/</span>
-              <span className="text-ink">FUTURO</span>
-            </div>
-            <Link
-              href="/contacto"
-              className="inline-block px-8 py-4 bg-accent-gold hover:bg-highlight text-ink font-extrabold rounded-md transition-all shadow-[0_20px_40px_rgba(225,235,163,0.35)]"
+      <section className="py-12">
+        <Container>
+          <Reveal>
+            <CtaBlock
+              label="Energía · Confianza · Futuro"
+              title="Solicita una cotización a la medida."
+              text="Nuestros ingenieros analizan tu consumo y te proponen la combinación óptima de generación y almacenamiento."
             >
-              Solicitar Cotización
-            </Link>
-          </div>
-        </Reveal>
+              <ButtonLink href="/contacto" variant="light">Solicitar cotización</ButtonLink>
+            </CtaBlock>
+          </Reveal>
+        </Container>
       </section>
 
       <Footer />

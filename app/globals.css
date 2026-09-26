@@ -7,8 +7,8 @@ html {
 }
 
 body {
-  background-color: #F7F8F3;
-  color: #1A1C1D;
+  background-color: #f0efe9;
+  color: #322d2a;
   overflow-x: hidden;
 }
 
@@ -115,8 +115,8 @@ body {
 
 /* Smooth selection */
 ::selection {
-  background: rgba(197, 217, 78, 0.4);
-  color: #1A1C1D;
+  background: #322d2a;
+  color: #ffffff;
 }
 
 /* Animation delays */
@@ -134,7 +134,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F7F8F3;
+  background: #f0efe9;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -146,14 +146,16 @@ body {
   background: rgba(26, 28, 29, 0.3);
 }
 
-/* Mapbox Popup Styling */
-.mapbox-popup .mapboxgl-popup-content {
+/* Map Popup Styling */
+.mapbox-popup .mapboxgl-popup-content,
+.mapbox-popup .maplibregl-popup-content {
   background: transparent !important;
   padding: 0 !important;
   box-shadow: none !important;
 }
 
-.mapbox-popup .mapboxgl-popup-tip {
+.mapbox-popup .mapboxgl-popup-tip,
+.mapbox-popup .maplibregl-popup-tip {
   display: none !important;
 }
 
@@ -163,7 +165,7 @@ a:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid rgba(197, 217, 78, 0.8);
+  outline: 2px solid #322d2a;
   outline-offset: 2px;
 }
 
