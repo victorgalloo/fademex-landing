@@ -101,11 +101,11 @@ export default function Home() {
       {/* Hero: fotografía a sangre con titular abajo a la izquierda */}
       <section id="inicio" className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
         <img
-          src="/hero-solar.png"
-          alt="Instalación solar industrial sobre techo de planta manufacturera"
+          src="/hero-techo-solar.jpg"
+          alt="Vista aérea de paneles solares sobre el techo de una planta industrial"
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-x-0 bottom-0 h-3/4 md:h-1/2 bg-gradient-to-t from-onyx/60 md:from-onyx/50 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-3/4 md:h-2/3 bg-gradient-to-t from-onyx/80 via-onyx/35 to-transparent" aria-hidden="true" />
 
         <Container className="relative h-full flex flex-col justify-end pb-10 md:pb-16">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
@@ -122,7 +122,7 @@ export default function Home() {
               </Reveal>
               <Reveal delay={200}>
                 <div className="flex flex-wrap gap-2">
-                  <ButtonLink href="#contacto">Inicia tu proyecto</ButtonLink>
+                  <ButtonLink href="#contacto" variant="light">Inicia tu proyecto</ButtonLink>
                   <ButtonLink href="/soluciones" variant="ghost-light">Ver soluciones</ButtonLink>
                 </div>
               </Reveal>
