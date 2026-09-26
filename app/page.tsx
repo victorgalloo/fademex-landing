@@ -173,7 +173,7 @@ export default function Home() {
       </section>
 
       {/* Misión y ventajas */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16">
             <div className="lg:col-span-7">
@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* Tecnología: imagen + acordeón */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <Reveal>
@@ -220,7 +220,7 @@ export default function Home() {
                 <img
                   src="/hero-solar.png"
                   alt="Arreglo de paneles solares en techo industrial"
-                  className="w-full h-full object-cover object-[30%_85%] scale-[1.35]"
+                  className="w-full h-full object-cover object-left-bottom scale-[1.9] origin-bottom-left"
                 />
               </div>
             </Reveal>
@@ -249,7 +249,7 @@ export default function Home() {
       </section>
 
       {/* Índice de soluciones */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
             <div className="lg:col-span-7">
@@ -295,7 +295,7 @@ export default function Home() {
       </section>
 
       {/* Presencia nacional */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
             <div className="lg:col-span-7">
@@ -322,7 +322,7 @@ export default function Home() {
       </section>
 
       {/* Contacto */}
-      <section id="contacto" className="py-12 md:py-24 scroll-mt-24">
+      <section id="contacto" className="py-10 md:py-16 scroll-mt-24">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-5">

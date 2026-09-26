@@ -27,10 +27,10 @@ export default function Accordion({
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
               aria-expanded={isOpen}
-              className="w-full flex items-center justify-between gap-6 py-6 text-left"
+              className="w-full flex items-center justify-between gap-6 py-5 text-left"
             >
-              <span className="flex items-baseline gap-4">
-                {item.meta && <span className="text-label text-mercury">{item.meta}</span>}
+              <span className="flex flex-col gap-1.5">
+                {item.meta && <span className="text-label uppercase text-mercury">{item.meta}</span>}
                 <span className="text-[20px] md:text-subheading font-normal text-carbon">{item.title}</span>
               </span>
               <span
@@ -44,7 +44,7 @@ export default function Accordion({
               className={`grid transition-all duration-500 ease-out ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
             >
               <div className="overflow-hidden">
-                <div className="pb-8 pr-14 text-sm leading-[1.4] text-carbon/80">{item.content}</div>
+                <div className="pb-6 pr-14 text-sm leading-[1.4] text-carbon/80">{item.content}</div>
               </div>
             </div>
           </div>

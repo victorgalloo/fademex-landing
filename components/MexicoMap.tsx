@@ -7,6 +7,9 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 // Mapa base monocromático sin token (CARTO Positron)
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'
 
+// Centro-norte de México, donde están los proyectos (oeste-sur, este-norte)
+const MEXICO_BOUNDS: [[number, number], [number, number]] = [[-108.5, 17.8], [-95.5, 27.2]]
+
 interface ProjectPin {
     id: string
     longitude: number
@@ -79,13 +82,14 @@ export default function MexicoMap() {
     ]
 
     return (
-        <div className="relative w-full h-full rounded-[40px] md:rounded-orb overflow-hidden bg-white">
+        <div className="w-full h-full flex flex-col gap-3">
+        <div className="relative flex-1 min-h-0 rounded-[40px] md:rounded-orb overflow-hidden bg-white">
             <Map
                 initialViewState={{
-                    longitude: -102.5528,
-                    latitude: 23.6345,
-                    zoom: 4.5,
+                    bounds: MEXICO_BOUNDS,
+                    fitBoundsOptions: { padding: 24 },
                 }}
+                attributionControl={false}
                 style={{ width: '100%', height: '100%' }}
                 mapStyle={MAP_STYLE}
                 interactive={true}
@@ -137,6 +141,10 @@ export default function MexicoMap() {
                     </Popup>
                 )}
             </Map>
+        </div>
+        <p className="text-xs text-mercury text-right">
+            © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" className="hover:text-carbon">OpenStreetMap</a> · © <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer" className="hover:text-carbon">CARTO</a>
+        </p>
         </div>
     )
 }

@@ -72,7 +72,7 @@ export default function ProyectosPage() {
       </section>
 
       {/* Mapa */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-end">
             <Reveal className="lg:col-span-7">
@@ -94,7 +94,7 @@ export default function ProyectosPage() {
       </section>
 
       {/* Casos destacados */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <Reveal>
             <SectionLabel className="mb-10">Casos de éxito</SectionLabel>

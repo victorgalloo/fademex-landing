@@ -31,7 +31,7 @@ const PANEL_BRANDS = [
 
 const INVERTER_BRANDS = [
   { name: 'Fronius', logo: '/logos/brands/Fronius-logo.png' },
-  { name: 'Huawei', logo: '/logos/brands/Huawei-Logo.wine.png' },
+  { name: 'Huawei', logo: '/logos/brands/Huawei-Logo.wine.png', zoom: true },
   { name: 'SMA', logo: '/logos/brands/Logo_SMA.svg.png' },
 ]
 
@@ -53,13 +53,13 @@ const BATTERY_USES = [
   },
 ]
 
-function BrandTile({ name, logo }: { name: string; logo: string }) {
+function BrandTile({ name, logo, zoom }: { name: string; logo: string; zoom?: boolean }) {
   return (
     <div className="group bg-white rounded-xl h-24 p-5 flex items-center justify-center">
       <img
         src={logo}
         alt={name}
-        className="max-h-full max-w-full object-contain grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300"
+        className={`max-h-full max-w-full object-contain ${zoom ? 'scale-[2.2]' : ''} grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition duration-300`}
       />
     </div>
   )
@@ -94,7 +94,7 @@ export default function ServiciosPage() {
       </Reveal>
 
       {/* 01. Energía solar */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <Reveal>
             <ChapterHeader number="01" title="Energía solar" />
@@ -207,7 +207,7 @@ export default function ServiciosPage() {
       </section>
 
       {/* 02. Baterías */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <Reveal>
             <ChapterHeader number="02" title="Baterías" />

@@ -87,7 +87,7 @@ export default function IngenieriaPage() {
       </Reveal>
 
       {/* Fases */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
             <div className="lg:col-span-5">
@@ -120,7 +120,7 @@ export default function IngenieriaPage() {
       </section>
 
       {/* Garantías */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <Reveal>
             <SectionLabel className="mb-10">Garantías y soporte post-instalación</SectionLabel>

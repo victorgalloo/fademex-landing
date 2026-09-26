@@ -70,7 +70,7 @@ export default function SolucionesPage() {
       </section>
 
       {/* Ventajas como hoja de especificaciones */}
-      <section className="py-12 md:py-24">
+      <section className="py-10 md:py-16">
         <Container>
           <Reveal>
             <SectionLabel className="mb-10">Cuatro compromisos</SectionLabel>
