@@ -1,22 +1,24 @@
 import Link from 'next/link'
+import FloatingContact from '@/components/FloatingContact'
+import { EMAIL, PHONE_DISPLAY, PHONE_HREF, QUOTE_HREF, whatsappUrl } from '@/lib/contact'
 
 const COLUMNS = [
   {
-    title: 'Soluciones',
+    title: 'Servicios',
     links: [
-      { label: 'Solar Industrial', href: '/soluciones' },
-      { label: 'Almacenamiento (BESS)', href: '/servicios' },
-      { label: 'Microgrids', href: '/soluciones' },
-      { label: 'Consultoría Código de Red', href: '/tecnologia' },
+      { label: 'Paneles solares industriales', href: '/servicios' },
+      { label: 'Baterías y peak shaving', href: '/servicios' },
+      { label: 'Financiamiento y garantías', href: '/soluciones' },
+      { label: 'Especificaciones técnicas', href: '/tecnologia' },
     ],
   },
   {
     title: 'Compañía',
     links: [
-      { label: 'Nosotros', href: '/' },
-      { label: 'Casos de Éxito', href: '/proyectos' },
-      { label: 'Carreras', href: '/contacto' },
-      { label: 'Noticias', href: '/proyectos' },
+      { label: 'Casos de éxito', href: '/proyectos' },
+      { label: 'Auditoría energética', href: '/ingenieria' },
+      { label: 'Preguntas frecuentes', href: '/#preguntas' },
+      { label: 'Portal de clientes', href: '/portal/login' },
     ],
   },
 ]
@@ -58,16 +60,29 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-white/80">
               <li>León, Guanajuato</li>
               <li>
-                <a href="tel:+524791369896" className="hover:text-white transition-colors">
-                  +52 (479) 136-9896
+                <a href={PHONE_HREF} className="hover:text-white transition-colors">
+                  {PHONE_DISPLAY}
                 </a>
               </li>
               <li>
-                <a href="mailto:contacto@fademex.com" className="hover:text-white transition-colors">
-                  contacto@fademex.com
+                <a href={`mailto:${EMAIL}`} className="hover:text-white transition-colors">
+                  {EMAIL}
                 </a>
               </li>
             </ul>
+            <div className="flex flex-wrap gap-2 mt-6">
+              <a href={QUOTE_HREF} className="rounded-full bg-white text-carbon px-4 py-2.5 text-sm leading-none hover:bg-vellum transition-colors">
+                Cotizar
+              </a>
+              <a
+                href={whatsappUrl('general')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-white/40 px-4 py-2.5 text-sm leading-none hover:bg-white hover:text-carbon transition-colors"
+              >
+                WhatsApp
+              </a>
+            </div>
           </div>
         </div>
 
@@ -80,6 +95,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      <FloatingContact />
     </footer>
   )
 }

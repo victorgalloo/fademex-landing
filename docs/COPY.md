@@ -67,3 +67,20 @@ Estas cifras vienen del sitio anterior. Antes de publicar, confirmar con documen
 - Cargo por demanda en GDMTH y por qué los paneles no lo reducen:
   https://www.energiareal.mx/blog/cargo-por-demanda-cfe-factura-industrial
 - Conceptos de la factura GDMTH: https://ontu.mx/como-leer-factura-cfe-gdmth-conceptos/
+
+## Estructura de una sola página y CTAs
+
+La página principal contiene todas las secciones, en este orden:
+hero → cifras → el problema → ventajas → CTA → servicios (solar, tipos, marcas, baterías)
+→ tecnología → proyectos (casos y mapa) → CTA → ingeniería → preguntas frecuentes → cotizar.
+
+Las páginas `/soluciones`, `/servicios`, `/tecnologia`, `/proyectos`, `/ingenieria` y
+`/contacto` reutilizan las mismas secciones (`components/sections/`) para SEO; el menú
+navega con anclas (`/#servicios`, etc.).
+
+Regla de CTAs: todo botón de conversión lleva a una de dos rutas:
+- Formulario de cotización: `/#cotizar` (`QUOTE_HREF`).
+- WhatsApp: `whatsappUrl(contexto)` con mensaje prellenado según la sección.
+
+Número y mensajes en `lib/contact.ts`. Confirmar con el cliente que +52 479 136 9896
+tiene WhatsApp Business activo.

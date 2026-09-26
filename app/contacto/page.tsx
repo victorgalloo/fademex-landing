@@ -2,88 +2,32 @@
 
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import ContactForm from '@/components/ContactForm'
+import CotizarSection from '@/components/sections/CotizarSection'
+import PreguntasSection from '@/components/sections/PreguntasSection'
 import { Reveal } from '@/lib/hooks'
-import { ButtonLink, Container, CtaBlock, PageHero, SectionLabel, headingClass } from '@/components/ui'
-
-const CONTACT_INFO = [
-  { label: 'Oficina principal', value: 'León, Guanajuato', note: 'Centro de Operaciones' },
-  { label: 'Teléfono', value: '+52 (479) 136-9896', note: 'Lunes a viernes', href: 'tel:+524791369896' },
-  { label: 'Correo', value: 'contacto@fademex.com', note: 'Respuesta en 24 horas', href: 'mailto:contacto@fademex.com' },
-  { label: 'Horario', value: 'Lun – Vie: 8:00 – 19:00' },
-]
+import { Container, CtaBlock } from '@/components/ui'
 
 export default function ContactoPage() {
   return (
     <div className="min-h-screen bg-vellum text-carbon">
       <Navigation />
 
-      <Reveal>
-        <PageHero
-          label="Contacto"
-          title={
-            <>
-              Cotiza paneles solares
-              para tu empresa.
-            </>
-          }
-          intro="Un ingeniero revisa tu caso y te contacta en menos de 24 horas hábiles para agendar una sesión técnica."
-        />
-      </Reveal>
+      <div className="pt-24 md:pt-32">
+        <CotizarSection headingLevel="h1" />
+      </div>
 
-      <section className="py-12 md:py-16">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            {/* Información de contacto */}
-            <div className="lg:col-span-5">
-              <Reveal>
-                <SectionLabel className="mb-8">Información de contacto</SectionLabel>
-                <dl className="border-t border-carbon">
-                  {CONTACT_INFO.map((item) => (
-                    <div key={item.label} className="py-5 border-b border-carbon">
-                      <dt className="text-xs text-mercury mb-2">{item.label}</dt>
-                      <dd className="text-[20px] font-light">
-                        {item.href ? (
-                          <a href={item.href} className="hover:opacity-60 transition-opacity">{item.value}</a>
-                        ) : (
-                          item.value
-                        )}
-                      </dd>
-                      {item.note && <dd className="text-sm text-carbon/60 mt-1">{item.note}</dd>}
-                    </div>
-                  ))}
-                </dl>
-              </Reveal>
-            </div>
+      <PreguntasSection />
 
-            {/* Formulario */}
-            <div className="lg:col-span-7">
-              <Reveal delay={100}>
-                <div className="bg-white rounded-xl p-[22px] md:p-10">
-                  <h2 className={`${headingClass} mb-3`}>Cuéntanos de tu planta.</h2>
-                  <p className="text-sm leading-[1.4] text-carbon/70 mb-10">
-                    Mientras más datos compartas (tarifa de CFE, consumo mensual, ubicación),
-                    más útil será la primera conversación.
-                  </p>
-                  <ContactForm />
-                </div>
-              </Reveal>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-12">
+      <section className="py-10 md:py-12">
         <Container>
           <Reveal>
             <CtaBlock
               label="Proyectos de gran escala"
-              title="¿Tienes un proyecto grande o necesitas soporte técnico?"
-              text="Para proyectos de más de 5 MW o soporte técnico urgente, contacta directamente al departamento de ingeniería."
-            >
-              <ButtonLink href="tel:+524791369896" variant="light">Llamar ahora</ButtonLink>
-              <ButtonLink href="mailto:contacto@fademex.com" variant="ghost-light">Escribir a ingeniería</ButtonLink>
-            </CtaBlock>
+              title="¿Tu proyecto supera los 5 MW?"
+              text="Para parques solares o plantas con varias naves, habla directo con el departamento de ingeniería."
+              context="grandes"
+              quoteLabel="Cotizar por formulario"
+            />
           </Reveal>
         </Container>
       </section>

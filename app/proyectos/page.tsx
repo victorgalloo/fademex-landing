@@ -2,39 +2,9 @@
 
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import MexicoMap from '@/components/MexicoMap'
+import ProyectosSection from '@/components/sections/ProyectosSection'
 import { Reveal } from '@/lib/hooks'
-import { ButtonLink, Container, CtaBlock, PageHero, SectionLabel, headingClass } from '@/components/ui'
-
-const STATS = [
-  { value: '8.4 MW', label: 'Capacidad instalada' },
-  { value: '150+', label: 'Proyectos completados' },
-  { value: '20+', label: 'Estados cubiertos' },
-]
-
-const HIGHLIGHTS = [
-  {
-    sector: 'Industrial',
-    title: 'Fábrica de cuero y calzado',
-    location: 'León, Gto.',
-    desc: 'Sistema de 500 kWp sobre la nave de producción, con reducción significativa en costos de energía.',
-    tags: ['500 kWp', '−CO₂'],
-  },
-  {
-    sector: 'Comercial',
-    title: 'Inmueble comercial',
-    location: 'Ciudad de México',
-    desc: 'Instalación de 250 kWp que redujo el 88% del costo de energía del inmueble.',
-    tags: ['250 kWp', '88% ahorro'],
-  },
-  {
-    sector: 'Industrial',
-    title: 'Planta de ensamblaje',
-    location: 'Aguascalientes, Ags.',
-    desc: 'Sistema de 500 kWp dimensionado sobre el consumo real de la planta: 99% de ahorro en costos de energía.',
-    tags: ['500 kWp', '99% ahorro'],
-  },
-]
+import { Container, CtaBlock, CtaButtons, PageHero } from '@/components/ui'
 
 export default function ProyectosPage() {
   return (
@@ -44,94 +14,23 @@ export default function ProyectosPage() {
       <Reveal>
         <PageHero
           label="Casos de éxito"
-          title={
-            <>
-              Proyectos de energía
-              solar industrial.
-            </>
-          }
+          title="Proyectos de energía solar industrial en México."
           intro="Plantas y comercios en el Bajío, el norte y el centro de México. Monitoreamos cada sistema en tiempo real desde nuestro Centro de Control en León."
-        />
+        >
+          <CtaButtons context="proyectos" />
+        </PageHero>
       </Reveal>
 
-      {/* Cifras */}
-      <section className="pb-12">
-        <Container>
-          <div className="grid grid-cols-1 md:grid-cols-3 border-t border-carbon">
-            {STATS.map((stat, i) => (
-              <Reveal key={stat.label} delay={i * 80}>
-                <div className={`py-8 border-b md:border-b-0 border-carbon/20 ${i > 0 ? 'md:border-l md:pl-6' : ''}`}>
-                  <div className="text-[40px] md:text-display font-light leading-none mb-3">{stat.value}</div>
-                  <div className="text-sm text-mercury">{stat.label}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ProyectosSection showIntro={false} />
 
-      {/* Mapa */}
-      <section className="py-10 md:py-16">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-end">
-            <Reveal className="lg:col-span-7">
-              <SectionLabel className="mb-8">Mapa de proyectos en operación</SectionLabel>
-              <h2 className={headingClass}>
-                León, Irapuato, Aguascalientes, Querétaro, Guadalajara, Ciudad de México y Monterrey.
-              </h2>
-            </Reveal>
-            <Reveal delay={100} className="lg:col-span-5 lg:justify-self-end">
-              <SectionLabel tone="muted">Proyectos activos</SectionLabel>
-            </Reveal>
-          </div>
-          <Reveal delay={100}>
-            <div className="w-full h-[460px] md:h-[600px]">
-              <MexicoMap />
-            </div>
-          </Reveal>
-        </Container>
-      </section>
-
-      {/* Casos destacados */}
-      <section className="py-10 md:py-16">
-        <Container>
-          <Reveal>
-            <SectionLabel className="mb-10">Casos de éxito</SectionLabel>
-          </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-            {HIGHLIGHTS.map((item, i) => (
-              <Reveal key={item.title} delay={i * 80}>
-                <article className="h-full bg-white rounded-xl p-[22px] md:p-8 flex flex-col">
-                  <div className="flex justify-between gap-4 mb-12">
-                    <SectionLabel>{item.sector}</SectionLabel>
-                    <span className="text-xs text-mercury">{item.location}</span>
-                  </div>
-                  <h3 className="text-[20px] md:text-subheading font-normal mb-3">{item.title}</h3>
-                  <p className="text-sm leading-[1.4] text-carbon/70 mb-8">{item.desc}</p>
-                  <div className="mt-auto flex flex-wrap gap-2">
-                    {item.tags.map((tag) => (
-                      <span key={tag} className="rounded-full border border-carbon px-3 py-1.5 text-xs leading-none">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-12">
+      <section className="py-10 md:py-12">
         <Container>
           <Reveal>
             <CtaBlock
               title="Tu planta puede ser el siguiente caso."
               text="Más de 150 empresas ya generan parte de su energía con FADEMEX. Empezamos por revisar tus recibos de CFE."
-            >
-              <ButtonLink href="/contacto" variant="light">Solicitar análisis de consumo</ButtonLink>
-              <ButtonLink href="/ingenieria" variant="ghost-light">Ver metodología</ButtonLink>
-            </CtaBlock>
+              context="proyectos"
+            />
           </Reveal>
         </Container>
       </section>

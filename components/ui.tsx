@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { ReactNode } from 'react'
+import { QUOTE_HREF, whatsappUrl, type WhatsAppContext } from '@/lib/contact'
 
 // Primitivas del sistema T1: lienzo vellum, texto carbón, píldoras y
 // etiquetas con indicador cuadrado. Sin sombras ni colores de acento.
@@ -61,8 +62,15 @@ export function ButtonLink({
   className?: string
 }) {
   const classes = `${buttonBase} ${buttonVariants[variant]} ${className}`
-  const external = href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('#')
-  if (external) {
+  if (href.startsWith('http')) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {children}
+      </a>
+    )
+  }
+  // Anclas, teléfono y correo: enlace nativo para que el scroll funcione siempre
+  if (/^(#|\/#|tel:|mailto:)/.test(href)) {
     return (
       <a href={href} className={classes}>
         {children}
@@ -73,6 +81,68 @@ export function ButtonLink({
     <Link href={href} className={classes}>
       {children}
     </Link>
+  )
+}
+
+export function WhatsAppIcon({ className = 'w-4 h-4' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.84 9.84 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.23 8.24c0 4.54-3.7 8.23-8.23 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.43-.06-.13-.56-1.35-.77-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.23.25-.87.85-.87 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.29Z" />
+    </svg>
+  )
+}
+
+// Par de CTAs de conversión: cotizar por formulario o escribir por WhatsApp
+export function CtaButtons({
+  context = 'general',
+  tone = 'dark',
+  quoteLabel = 'Cotizar mi proyecto',
+  className = '',
+}: {
+  context?: WhatsAppContext
+  tone?: 'dark' | 'light'
+  quoteLabel?: string
+  className?: string
+}) {
+  return (
+    <div className={`flex flex-wrap gap-2 ${className}`}>
+      <ButtonLink href={QUOTE_HREF} variant={tone === 'light' ? 'light' : 'filled'}>
+        {quoteLabel}
+      </ButtonLink>
+      <ButtonLink href={whatsappUrl(context)} variant={tone === 'light' ? 'ghost-light' : 'ghost'}>
+        <WhatsAppIcon />
+        Escribir por WhatsApp
+      </ButtonLink>
+    </div>
+  )
+}
+
+// Encabezado de sección: etiqueta, titular a la izquierda y texto a la derecha
+export function SectionIntro({
+  label,
+  title,
+  intro,
+  display = true,
+  className = 'mb-12',
+}: {
+  label: string
+  title: ReactNode
+  intro?: ReactNode
+  display?: boolean
+  className?: string
+}) {
+  return (
+    <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 ${className}`}>
+      <div className="lg:col-span-7">
+        <SectionLabel className="mb-8">{label}</SectionLabel>
+        <h2 className={display ? displayClass : headingClass}>{title}</h2>
+      </div>
+      {intro && (
+        <div className="lg:col-span-5 lg:pt-14 space-y-4 text-base leading-[1.4] text-carbon/80 max-w-md">
+          {intro}
+        </div>
+      )}
+    </div>
   )
 }
 
@@ -115,21 +185,25 @@ export function CtaBlock({
   label = 'Siguiente paso',
   title,
   text,
+  context = 'general',
+  quoteLabel,
   children,
 }: {
   label?: string
   title: ReactNode
   text?: ReactNode
+  context?: WhatsAppContext
+  quoteLabel?: string
   children?: ReactNode
 }) {
   return (
     <div className="bg-carbon text-white rounded-[40px] md:rounded-orb px-8 py-14 md:px-16 md:py-20">
       <SectionLabel tone="light" className="mb-8">{label}</SectionLabel>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-        <h3 className={`${displayClass} lg:col-span-7`}>{title}</h3>
-        <div className="lg:col-span-5">
+        <h3 className={`${displayClass} lg:col-span-6`}>{title}</h3>
+        <div className="lg:col-span-6">
           {text && <p className="text-base leading-[1.4] text-white/70 max-w-md">{text}</p>}
-          {children && <div className="flex flex-wrap gap-2 mt-6">{children}</div>}
+          {children ?? <CtaButtons context={context} tone="light" quoteLabel={quoteLabel} className="mt-6" />}
         </div>
       </div>
     </div>
