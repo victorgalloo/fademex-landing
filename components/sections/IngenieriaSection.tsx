@@ -72,7 +72,7 @@ export default function IngenieriaSection({ showIntro = true }: { showIntro?: bo
               )}
               <p className="text-base leading-[1.4] text-carbon/80 max-w-md mb-8">
                 Cuatro fases con un ingeniero responsable en cada una. La auditoría define
-                todo lo demás: el tamaño del sistema, si necesitas baterías y cuánto vas a
+                todo lo demás: cuántos paneles necesitas, dónde van y cuánto vas a
                 ahorrar. Por eso no cotizamos sin medir.
               </p>
               <CtaButtons context="ingenieria" quoteLabel="Agendar auditoría" />

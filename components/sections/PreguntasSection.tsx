@@ -14,8 +14,8 @@ export const FAQS = [
     a: 'Depende de tu tarifa y de cuánta energía consumes durante el día. En media tensión (GDMTO y GDMTH) la energía es más cara, así que el retorno suele ser más rápido. Lo calculamos con tus datos antes de que tomes cualquier decisión.',
   },
   {
-    q: '¿Los paneles solares bajan el cargo por demanda?',
-    a: 'No directamente. Los paneles reducen los kWh que compras a CFE; el cargo por demanda se mide en tu pico de potencia, que a menudo ocurre fuera de las horas de sol. Para bajarlo se necesitan baterías con peak shaving, y por eso diseñamos ambos juntos.',
+    q: '¿Cuántos paneles solares necesita mi empresa?',
+    a: 'Depende de tu consumo mensual y del espacio disponible. Con tus recibos de CFE y una visita técnica calculamos la potencia del sistema, el número de módulos y dónde conviene instalarlos.',
   },
   {
     q: '¿Qué pasa en días nublados o de noche?',

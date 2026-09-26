@@ -14,8 +14,8 @@ export const QUOTE_HREF = '/#cotizar'
 export const WHATSAPP_MESSAGES = {
   general: 'Hola FADEMEX, quiero cotizar paneles solares para mi empresa.',
   ahorro: 'Hola FADEMEX, quiero saber cuánto puedo ahorrar con paneles solares en mi planta.',
-  servicios: 'Hola FADEMEX, quiero cotizar paneles solares y baterías para mi empresa.',
-  baterias: 'Hola FADEMEX, quiero reducir mi cargo por demanda con baterías.',
+  servicios: 'Hola FADEMEX, quiero cotizar la instalación de paneles solares para mi empresa.',
+  baterias: 'Hola FADEMEX, tengo paneles solares o los voy a instalar y quiero saber si me convienen baterías.',
   tecnologia: 'Hola FADEMEX, quiero las fichas técnicas de los equipos que instalan.',
   proyectos: 'Hola FADEMEX, vi sus proyectos y quiero cotizar uno para mi planta.',
   ingenieria: 'Hola FADEMEX, quiero agendar una auditoría energética para mi planta.',

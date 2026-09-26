@@ -1,6 +1,7 @@
 'use client'
 
 import { Reveal } from '@/lib/hooks'
+import { whatsappUrl } from '@/lib/contact'
 import {
   Container,
   CtaButtons,
@@ -32,24 +33,6 @@ const INVERTER_BRANDS = [
   { name: 'SMA', logo: '/logos/brands/Logo_SMA.svg.png' },
 ]
 
-const BATTERY_USES = [
-  {
-    title: 'Reducción de picos de demanda',
-    meta: 'Peak shaving · Time shifting',
-    desc: 'Cargan en horario base, cuando la energía cuesta menos, y descargan en horario punta. Así bajan la demanda máxima que CFE te factura cada mes.',
-  },
-  {
-    title: 'Continuidad operativa',
-    meta: 'Respaldo inmediato',
-    desc: 'Si hay un corte, las baterías entran de inmediato y tus procesos sensibles siguen trabajando. Menos paros, menos producto perdido.',
-  },
-  {
-    title: 'Autonomía y protección ante variaciones',
-    meta: 'Estabilidad de voltaje',
-    desc: 'Amortiguan las variaciones de voltaje de la red, protegen tus equipos críticos y alargan la vida útil de la maquinaria.',
-  },
-]
-
 function BrandTile({ name, logo, zoom }: { name: string; logo: string; zoom?: boolean }) {
   return (
     <div className="group bg-white rounded-xl h-24 p-5 flex items-center justify-center overflow-hidden">
@@ -63,15 +46,6 @@ function BrandTile({ name, logo, zoom }: { name: string; logo: string; zoom?: bo
   )
 }
 
-function ChapterHeader({ number, title }: { number: string; title: string }) {
-  return (
-    <div className="flex items-baseline gap-6 border-t border-carbon pt-6 mb-12">
-      <span className="text-label text-mercury">{number}</span>
-      <h3 className="text-[32px] md:text-[44px] font-light leading-none">{title}</h3>
-    </div>
-  )
-}
-
 export default function ServiciosSection({ showIntro = true }: { showIntro?: boolean }) {
   return (
     <section id="servicios" className="py-10 md:py-16 scroll-mt-28">
@@ -80,22 +54,17 @@ export default function ServiciosSection({ showIntro = true }: { showIntro?: boo
           <Reveal>
             <SectionIntro
               label="Servicios · Consultoría energética 360°"
-              title="Instalación de paneles solares industriales y baterías."
+              title="Instalación de paneles solares comerciales e industriales."
               intro={
                 <p>
                   Somos una consultoría energética mexicana con sede en León, Guanajuato.
-                  Medimos cómo consume tu empresa y diseñamos lo que más reduce tu recibo:
-                  paneles, baterías o ambos.
+                  Medimos cómo consume tu empresa y diseñamos el sistema de paneles solares
+                  que más reduce tu recibo de CFE.
                 </p>
               }
             />
           </Reveal>
         )}
-
-        {/* 01. Energía solar */}
-        <Reveal>
-          <ChapterHeader number="01" title="Energía solar" />
-        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
           <Reveal>
@@ -199,53 +168,27 @@ export default function ServiciosSection({ showIntro = true }: { showIntro?: boo
           </Reveal>
         </div>
 
-        {/* 02. Baterías */}
         <Reveal>
-          <ChapterHeader number="02" title="Baterías" />
+          <CtaButtons context="servicios" quoteLabel="Cotizar paneles solares" className="mb-12" />
         </Reveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <h4 className={`${headingClass} mb-8`}>Baterías para reducir el cargo por demanda.</h4>
-            </Reveal>
-            <div className="border-t border-carbon">
-              {BATTERY_USES.map((use, i) => (
-                <Reveal key={use.title} delay={i * 80}>
-                  <div className="py-6 border-b border-carbon">
-                    <div className="text-label uppercase text-mercury mb-2">{use.meta}</div>
-                    <h5 className="text-[20px] font-normal mb-3">{use.title}</h5>
-                    <p className="text-sm leading-[1.4] text-carbon/70">{use.desc}</p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-            <Reveal>
-              <CtaButtons context="baterias" quoteLabel="Cotizar baterías" className="mt-8" />
-            </Reveal>
+        {/* Complemento opcional, mención breve */}
+        <Reveal>
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-t border-carbon/20 pt-6">
+            <p className="text-sm leading-[1.4] text-carbon/70 max-w-2xl">
+              ¿Tu planta también paga cargos altos por demanda? Podemos complementar tu
+              sistema solar con baterías; somos distribuidores oficiales de Fortress Power.
+            </p>
+            <a
+              href={whatsappUrl('baterias')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm underline underline-offset-4 decoration-carbon/30 hover:decoration-carbon whitespace-nowrap"
+            >
+              Preguntar por WhatsApp
+            </a>
           </div>
-
-          <Reveal delay={100} className="lg:col-span-5">
-            <div className="bg-carbon text-white rounded-xl p-[22px] md:p-10">
-              <SectionLabel tone="light" className="mb-12">Distribuidores oficiales de Fortress Power</SectionLabel>
-              <div className="text-[40px] md:text-display font-light leading-none mb-2">eSpire 280</div>
-              <div className="text-sm text-white/60 mb-12">Energía nominal 279.5 kWh</div>
-              <h5 className="text-base font-normal mb-2">Baterías comerciales e industriales</h5>
-              <p className="text-sm leading-[1.4] text-white/70 mb-8">
-                Guardan la energía de tus paneles o de la red en horario base y la entregan en
-                tus horas pico.
-              </p>
-              <SquareList
-                className="text-white/80"
-                items={[
-                  'Autonomía y protección ante variaciones',
-                  'Continuidad operativa',
-                  'Reducción de picos de demanda',
-                ]}
-              />
-            </div>
-          </Reveal>
-        </div>
+        </Reveal>
       </Container>
     </section>
   )

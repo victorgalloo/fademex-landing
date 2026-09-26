@@ -7,7 +7,7 @@ const COLUMNS = [
     title: 'Servicios',
     links: [
       { label: 'Paneles solares industriales', href: '/servicios' },
-      { label: 'Baterías y peak shaving', href: '/servicios' },
+      { label: 'Paneles solares comerciales', href: '/servicios' },
       { label: 'Financiamiento y garantías', href: '/soluciones' },
       { label: 'Especificaciones técnicas', href: '/tecnologia' },
     ],

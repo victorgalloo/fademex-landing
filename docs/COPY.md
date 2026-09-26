@@ -5,19 +5,21 @@ Adaptación del flujo [seo-content-writer](https://github.com/Yaroslavle/seo-con
 
 ## JTBD
 
-> Cuando el recibo de CFE de mi planta sube cada mes y no sé qué parte es consumo
-> y qué parte es demanda, quiero saber cuánto ahorraría con paneles solares y baterías,
-> y qué implica instalarlos, para decidir con números y sin detener la operación.
+> Cuando el recibo de CFE de mi empresa sube cada mes, quiero saber cuánto ahorraría
+> con paneles solares y qué implica instalarlos, para decidir con números y sin detener
+> la operación.
 
 Lector: director de planta, gerente de mantenimiento o director financiero de una
 empresa industrial o comercial en tarifa GDMTO/GDMTH, principalmente en el Bajío.
 
 ## Ángulo
 
-El recibo industrial tiene dos partes: energía (kWh) y demanda (kW). Los paneles
-reducen los kWh; el cargo por demanda se fija en los picos, que a menudo no coinciden
-con las horas de sol. FADEMEX diseña generación solar y baterías (peak shaving) juntas,
-a partir de recibos y mediciones reales.
+El producto principal son los paneles solares. Mensaje: tu techo puede producir la
+energía que hoy le compras a CFE, y el sistema se dimensiona con tu consumo real
+(recibos + medición), no con un paquete estándar.
+
+Las baterías solo aparecen como complemento opcional, en una línea dentro de Servicios
+(distribuidores de Fortress Power). No usarlas en titulares, hero, CTAs ni metadatos.
 
 ## Voz
 
@@ -25,7 +27,7 @@ Hacer:
 - Tutear al lector ("tu planta", "tu recibo").
 - Frases cortas, verbos concretos, datos y nombres propios (CFE, UVIE, GDMTH, Fronius).
 - Explicar el porqué técnico en una línea, sin tecnicismos innecesarios.
-- Todo en español; los términos en inglés solo si el cliente los usa (peak shaving, Tier 1).
+- Todo en español; los términos en inglés solo si el cliente los usa (Tier 1, TOPCon).
 
 No hacer:
 - Palabras vacías: "soluciones integrales", "transformar", "innovador", "de vanguardia",
@@ -41,7 +43,7 @@ No hacer:
 |---|---|---|
 | Inicio | paneles solares para empresas | paneles solares industriales, energía solar industrial, León Guanajuato |
 | Soluciones | financiamiento de paneles solares para empresas | garantía, mantenimiento O&M, trámites CFE |
-| Servicios | instalación de paneles solares industriales | baterías para empresas, almacenamiento de energía, peak shaving |
+| Servicios | instalación de paneles solares industriales | paneles solares comerciales, carport solar, interconexión CFE |
 | Tecnología | paneles solares Tier 1 | TOPCon, IEC 61215, Código de Red, monitoreo |
 | Proyectos | proyectos de energía solar industrial | casos de éxito, León, Aguascalientes, Querétaro |
 | Ingeniería | auditoría energética | interconexión CFE, UVIE, NOM-001-SEDE |
@@ -64,14 +66,12 @@ Estas cifras vienen del sitio anterior. Antes de publicar, confirmar con documen
 
 ## Fuentes de contexto
 
-- Cargo por demanda en GDMTH y por qué los paneles no lo reducen:
-  https://www.energiareal.mx/blog/cargo-por-demanda-cfe-factura-industrial
 - Conceptos de la factura GDMTH: https://ontu.mx/como-leer-factura-cfe-gdmth-conceptos/
 
 ## Estructura de una sola página y CTAs
 
 La página principal contiene todas las secciones, en este orden:
-hero → cifras → el problema → ventajas → CTA → servicios (solar, tipos, marcas, baterías)
+hero → cifras → el problema → ventajas → CTA → servicios (solar, tipos, marcas, mención breve de baterías)
 → tecnología → proyectos (casos y mapa) → CTA → ingeniería → preguntas frecuentes → cotizar.
 
 Las páginas `/soluciones`, `/servicios`, `/tecnologia`, `/proyectos`, `/ingenieria` y

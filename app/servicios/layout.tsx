@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Instalación de paneles solares industriales y baterías',
+  title: 'Instalación de paneles solares comerciales e industriales',
   description:
-    'Paneles solares comerciales e industriales y baterías para peak shaving. Analizamos tu consumo, instalamos y tramitamos la interconexión con CFE.',
+    'Instalación de paneles solares para empresas: analizamos tu consumo, diseñamos el sistema, lo instalamos y tramitamos la interconexión con CFE.',
   alternates: { canonical: '/servicios' },
 }
 

@@ -38,7 +38,7 @@ const CERTIFICATIONS = [
   'Normas IEC y UL',
   'Interconexión CFE',
   'Zero Export',
-  'Peak shaving',
+  'Generación distribuida',
 ]
 
 // Datos estructurados para buscadores: negocio local y preguntas frecuentes
@@ -48,7 +48,7 @@ const STRUCTURED_DATA = [
     '@type': 'LocalBusiness',
     name: 'FADEMEX',
     description:
-      'Paneles solares industriales y baterías para empresas. Auditoría energética, instalación, trámites con CFE y monitoreo.',
+      'Paneles solares industriales y comerciales para empresas. Auditoría energética, instalación, trámites con CFE y monitoreo.',
     telephone: PHONE_DISPLAY,
     email: EMAIL,
     address: { '@type': 'PostalAddress', addressLocality: 'León', addressRegion: 'Guanajuato', addressCountry: 'MX' },
@@ -96,9 +96,9 @@ export default function Home() {
               </Reveal>
               <Reveal delay={150}>
                 <p className="text-base leading-[1.4] text-white/80 max-w-lg mb-8">
-                  Diseñamos, instalamos y operamos sistemas solares y baterías para plantas
-                  en el Bajío y todo México. Primero medimos tu consumo; después te decimos
-                  cuánto vas a ahorrar.
+                  Diseñamos, instalamos y damos mantenimiento a sistemas de paneles solares
+                  para empresas en el Bajío y todo México. Primero medimos tu consumo;
+                  después te decimos cuánto vas a ahorrar.
                 </p>
               </Reveal>
               <Reveal delay={200}>
@@ -162,23 +162,23 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             <div className="lg:col-span-7">
               <Reveal>
-                <SectionLabel className="mb-8">El problema</SectionLabel>
+                <SectionLabel className="mb-8">Tu recibo de CFE</SectionLabel>
                 <h2 className={displayClass}>
-                  Tu recibo tiene dos cargos. Los paneles solo bajan uno.
+                  Tu techo puede producir la energía que hoy le compras a CFE.
                 </h2>
               </Reveal>
             </div>
             <div className="lg:col-span-5 lg:pt-14">
               <Reveal delay={100}>
                 <p className="text-base leading-[1.4] text-carbon/80 mb-4 max-w-md">
-                  En tarifa GDMTH pagas la energía que consumes (kWh) y tu demanda máxima
-                  (kW). Los paneles solares reducen los kWh durante el día, pero el cargo
-                  por demanda se fija en tus picos, que a menudo no coinciden con las horas
-                  de sol.
+                  En tarifas comerciales e industriales (GDMTO y GDMTH), la energía que
+                  consumes es una de las partidas más caras del recibo. Un sistema de paneles
+                  solares la genera en tu propio techo durante el día, justo cuando tu
+                  operación consume más.
                 </p>
                 <p className="text-base leading-[1.4] text-carbon/80 mb-8 max-w-md">
-                  Por eso diseñamos generación solar y baterías juntas, a partir de tus
-                  recibos y de mediciones en tu planta.
+                  Por eso empezamos midiendo: tu consumo real define cuántos paneles
+                  necesitas y cuánto vas a ahorrar cada mes.
                 </p>
                 <CtaButtons context="ahorro" quoteLabel="Revisar mi recibo" />
               </Reveal>

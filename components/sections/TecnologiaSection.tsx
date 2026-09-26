@@ -18,10 +18,10 @@ const COMPONENTS = [
       'Inversores Fronius, Huawei y SMA que cumplen los requisitos del Código de Red y convierten la energía de los paneles con pérdidas mínimas.',
   },
   {
-    title: 'Baterías LFP',
-    meta: 'Peak shaving',
+    title: 'Estructuras de montaje',
+    meta: 'Lámina · losa · carport',
     content:
-      'Baterías de litio ferrofosfato que recortan tus picos de demanda, respaldan equipos críticos ante cortes y estabilizan el voltaje.',
+      'Estructuras calculadas para la carga de tu techo o estacionamiento, con fijaciones que no comprometen la impermeabilización.',
   },
   {
     title: 'Monitoreo en tiempo real',
@@ -35,7 +35,7 @@ const TECHNICAL_SPECS = [
   { label: 'Eficiencia del panel', val: '22.8%', desc: 'Celdas N-Type TOPCon' },
   { label: 'Degradación anual', val: '<0.4%', desc: 'Garantizada por 30 años' },
   { label: 'Latencia del monitoreo', val: '20 ms', desc: 'Lecturas en tiempo real' },
-  { label: 'Capacidad de celda', val: '280 Ah', desc: 'Celdas prismáticas LFP' },
+  { label: 'Potencia por módulo', val: '660 W', desc: 'Módulos de 580 W a 660 W' },
 ]
 
 const CERTIFICATIONS = [
@@ -67,7 +67,7 @@ export default function TecnologiaSection({ showIntro = true }: { showIntro?: bo
           <Reveal>
             <SectionIntro
               label="Tecnología"
-              title="Paneles solares Tier 1 y baterías con certificación IEC y UL."
+              title="Paneles solares Tier 1 con certificación IEC y UL."
               intro={
                 <p>
                   Trabajamos con fabricantes de la lista Tier 1 de BloombergNEF. Elegimos cada
