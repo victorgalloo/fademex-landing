@@ -32,10 +32,10 @@ export function SectionLabel({
 
 // Titular display: peso 300, interlineado 1.0
 export const displayClass =
-  'text-[40px] md:text-display font-light leading-none tracking-[0.01em]'
+  'text-[40px] md:text-display font-light leading-none tracking-[0.01em] [text-wrap:balance]'
 
 export const headingClass =
-  'text-[26px] md:text-heading font-light tracking-[0.01em]'
+  'text-[26px] md:text-heading font-light tracking-[0.01em] [text-wrap:balance]'
 
 type ButtonVariant = 'filled' | 'ghost' | 'light' | 'ghost-light'
 

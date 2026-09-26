@@ -29,7 +29,7 @@ const PHASES = [
   {
     step: '02',
     title: 'Ingeniería y diseño',
-    desc: 'Diseño CAD/BIM de la estructura, selección de inversores y cálculo de retorno de inversión.',
+    desc: 'Diseño CAD/BIM de la estructura, selección de inversores y cálculo del retorno de inversión.',
     details: [
       'Diseño estructural certificado',
       'Selección óptima de componentes',
@@ -40,7 +40,7 @@ const PHASES = [
   {
     step: '03',
     title: 'Procura y logística',
-    desc: 'Importación directa de componentes Tier 1 para evitar intermediarios y asegurar garantía.',
+    desc: 'Importamos directo de fabricantes Tier 1: sin intermediarios y con la garantía del fabricante intacta.',
     details: [
       'Importación directa de fabricantes Tier 1',
       'Control de calidad en origen',
@@ -50,8 +50,8 @@ const PHASES = [
   },
   {
     step: '04',
-    title: 'Ejecución y comisionamiento',
-    desc: 'Instalación certificada bajo estándares NOM-001-SEDE. Pruebas de aislamiento y encendido.',
+    title: 'Instalación y puesta en marcha',
+    desc: 'Instalación conforme a la NOM-001-SEDE, pruebas de aislamiento y encendido supervisado.',
     details: [
       'Instalación por personal certificado',
       'Pruebas eléctricas completas',
@@ -64,7 +64,7 @@ const PHASES = [
 const GUARANTEES = [
   { value: '24 meses', title: 'O&M incluido', desc: 'Operación y mantenimiento completo incluido en todos nuestros proyectos.' },
   { value: '30 años', title: 'Garantía de producción', desc: 'Garantizamos que tu sistema producirá energía por encima del 85%.' },
-  { value: '24/7', title: 'Monitoreo NOC', desc: 'Centro de control operando 24/7 con alertas en tiempo real.' },
+  { value: '24/7', title: 'Monitoreo', desc: 'Nuestro Centro de Control revisa tu sistema todo el día y recibe alertas en tiempo real.' },
 ]
 
 export default function IngenieriaPage() {
@@ -74,15 +74,14 @@ export default function IngenieriaPage() {
 
       <Reveal>
         <PageHero
-          label="Proceso certificado"
+          label="Ingeniería"
           title={
             <>
-              Metodología de
-              <br />
-              implementación.
+              De la auditoría energética
+              al primer kWh.
             </>
           }
-          intro="Un proceso estructurado y probado para garantizar la máxima eficiencia, seguridad y retorno de inversión en cada proyecto."
+          intro="Cuatro fases con entregables claros y un ingeniero responsable en cada una. Siempre sabes en qué punto está tu proyecto y qué sigue."
         />
       </Reveal>
 
@@ -93,9 +92,10 @@ export default function IngenieriaPage() {
             <div className="lg:col-span-5">
               <Reveal>
                 <SectionLabel className="mb-8">Nuestro proceso</SectionLabel>
-                <h2 className={`${headingClass} mb-6`}>Cuatro fases, de la auditoría al encendido.</h2>
+                <h2 className={`${headingClass} mb-6`}>Cómo instalamos un sistema solar industrial.</h2>
                 <p className="text-base leading-[1.4] text-carbon/80 max-w-md">
-                  Cada fase tiene entregables verificables y un responsable técnico asignado.
+                  La auditoría define todo lo demás: el tamaño del sistema, si necesitas
+                  baterías y cuánto vas a ahorrar. Por eso no cotizamos sin medir.
                 </p>
               </Reveal>
             </div>
@@ -143,8 +143,8 @@ export default function IngenieriaPage() {
         <Container>
           <Reveal>
             <CtaBlock
-              title="¿Listo para comenzar tu proyecto?"
-              text="Agenda una sesión técnica con nuestros ingenieros senior para evaluar tu instalación y diseñar una solución a la medida."
+              title="Empieza por la auditoría."
+              text="Agenda una sesión técnica. Revisamos tus recibos de CFE y planeamos la visita de medición a tu planta."
             >
               <ButtonLink href="/contacto" variant="light">Agendar consultoría</ButtonLink>
               <ButtonLink href="/proyectos" variant="ghost-light">Ver proyectos realizados</ButtonLink>

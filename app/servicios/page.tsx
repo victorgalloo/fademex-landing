@@ -39,17 +39,17 @@ const BATTERY_USES = [
   {
     title: 'Reducción de picos de demanda',
     meta: 'Peak shaving · Time shifting',
-    desc: 'Las baterías almacenan energía en periodos de bajo consumo y la liberan en horarios punta, reduciendo costos operativos y evitando cargos por alta demanda.',
+    desc: 'Cargan en horario base, cuando la energía cuesta menos, y descargan en horario punta. Así bajan la demanda máxima que CFE te factura cada mes.',
   },
   {
     title: 'Continuidad operativa',
     meta: 'Respaldo inmediato',
-    desc: 'Aseguran operación continua al activar energía de respaldo inmediatamente ante cortes, protegiendo procesos sensibles y evitando tiempos de inactividad.',
+    desc: 'Si hay un corte, las baterías entran de inmediato y tus procesos sensibles siguen trabajando. Menos paros, menos producto perdido.',
   },
   {
     title: 'Autonomía y protección ante variaciones',
     meta: 'Estabilidad de voltaje',
-    desc: 'Ofrecen respaldo ante fluctuaciones de voltaje, garantizando estabilidad para equipos críticos y prolongando la vida útil de la maquinaria.',
+    desc: 'Amortiguan las variaciones de voltaje de la red, protegen tus equipos críticos y alargan la vida útil de la maquinaria.',
   },
 ]
 
@@ -81,15 +81,14 @@ export default function ServiciosPage() {
 
       <Reveal>
         <PageHero
-          label="Catálogo de soluciones energéticas"
+          label="Servicios · Consultoría energética 360°"
           title={
             <>
-              Consultoría y energía
-              <br />
-              solar 360°.
+              Instalación de paneles solares
+              industriales y baterías.
             </>
           }
-          intro="Somos Fademex, una empresa mexicana especializada en paneles solares y consultoría energética: soluciones integrales para optimizar el consumo eléctrico de las empresas y fomentar el uso de energías limpias."
+          intro="Somos una consultoría energética mexicana con sede en León, Guanajuato. Medimos cómo consume tu empresa y diseñamos lo que más reduce tu recibo: paneles, baterías o ambos."
         />
       </Reveal>
 
@@ -102,19 +101,18 @@ export default function ServiciosPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             <Reveal>
-              <h3 className={headingClass}>Energía que transforma.</h3>
+              <h3 className={headingClass}>Primero el análisis, después los paneles.</h3>
             </Reveal>
             <Reveal delay={100}>
               <div className="space-y-4 text-base leading-[1.4] text-carbon/80">
                 <p>
-                  Impulsamos la transición energética de las empresas a través de la
-                  venta e instalación de paneles solares de alto rendimiento.
+                  Antes de proponerte un solo panel revisamos tus recibos de CFE, medimos
+                  tu consumo en sitio y estudiamos el techo. Con eso dimensionamos el
+                  sistema que se paga más rápido, no el más grande.
                 </p>
                 <p>
-                  Más que un proveedor, somos una consultoría energética 360° que analiza
-                  a fondo el consumo y las oportunidades de cada cliente para diseñar
-                  soluciones personalizadas que maximizan el ahorro, optimizan la
-                  eficiencia y contribuyen a un futuro más sustentable.
+                  Después lo instalamos, tramitamos la interconexión con CFE y lo
+                  monitoreamos. Un solo responsable de principio a fin.
                 </p>
               </div>
             </Reveal>
@@ -136,7 +134,7 @@ export default function ServiciosPage() {
           <Reveal>
             <SectionLabel className="mb-8">Nuestras marcas</SectionLabel>
             <h3 className={`${headingClass} max-w-2xl mb-12`}>
-              Paneles solares e inversores de fabricantes Tier 1.
+              Paneles e inversores de fabricantes Tier 1.
             </h3>
           </Reveal>
 
@@ -170,16 +168,15 @@ export default function ServiciosPage() {
                 <SectionLabel className="mb-10">Comercial</SectionLabel>
                 <h4 className="text-[20px] md:text-subheading font-normal mb-4">Instalaciones comerciales</h4>
                 <p className="text-sm leading-[1.4] text-carbon/70 mb-8">
-                  Seleccionamos la planificación de componentes óptima para asegurar la
-                  máxima eficiencia y longevidad de tu sistema comercial. Nuestras
-                  instalaciones cumplen con nuestros estándares y directrices, respetando
-                  las normativas actuales.
+                  Para plazas, oficinas, bodegas y estacionamientos. Adaptamos la
+                  estructura a tu techo o a tu estacionamiento, sin comprometer la
+                  impermeabilización ni la operación del inmueble.
                 </p>
                 <SquareList
                   items={[
                     'Instalaciones en lámina, losa, sin perforaciones y terracería',
                     'Disponible como Carport y BIPV (Building Integrated Photovoltaic)',
-                    'Componentes de máxima eficiencia',
+                    'Paneles N-Type TOPCon de 580 W a 660 W',
                   ]}
                 />
               </div>
@@ -189,9 +186,9 @@ export default function ServiciosPage() {
                 <SectionLabel className="mb-10">Industrial</SectionLabel>
                 <h4 className="text-[20px] md:text-subheading font-normal mb-4">Instalaciones industriales</h4>
                 <p className="text-sm leading-[1.4] text-carbon/70 mb-8">
-                  Seleccionamos la planificación óptima de componentes para asegurar la
-                  máxima eficiencia y durabilidad de tu sistema industrial de alta
-                  resistencia, conforme a las normativas vigentes.
+                  Para naves y plantas con consumo alto en media tensión. Estructuras
+                  calculadas para la carga del techo e inversores trifásicos que cumplen
+                  el Código de Red y la NOM-001-SEDE.
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['Fronius Symo', 'SMA CORE1'].map((model) => (
@@ -216,7 +213,7 @@ export default function ServiciosPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-7">
               <Reveal>
-                <h3 className={`${headingClass} mb-10`}>Sistemas de almacenamiento de energía.</h3>
+                <h3 className={`${headingClass} mb-10`}>Baterías para reducir el cargo por demanda.</h3>
               </Reveal>
               <div className="border-t border-carbon">
                 {BATTERY_USES.map((use, i) => (
@@ -238,7 +235,8 @@ export default function ServiciosPage() {
                 <div className="text-sm text-white/60 mb-12">Energía nominal 279.5 kWh</div>
                 <h4 className="text-base font-normal mb-2">Baterías comerciales e industriales</h4>
                 <p className="text-sm leading-[1.4] text-white/70 mb-8">
-                  Almacenamiento inteligente y limpio para energías renovables.
+                  Guardan la energía de tus paneles o de la red en horario base y la
+                  entregan en tus horas pico.
                 </p>
                 <SquareList
                   className="text-white/80"
@@ -258,9 +256,9 @@ export default function ServiciosPage() {
         <Container>
           <Reveal>
             <CtaBlock
-              label="Energía · Confianza · Futuro"
-              title="Solicita una cotización a la medida."
-              text="Nuestros ingenieros analizan tu consumo y te proponen la combinación óptima de generación y almacenamiento."
+              label="Cotización"
+              title="Cotiza el sistema que tu planta necesita."
+              text="Te decimos qué combinación de paneles y baterías reduce más tu recibo, con el retorno de inversión calculado."
             >
               <ButtonLink href="/contacto" variant="light">Solicitar cotización</ButtonLink>
             </CtaBlock>

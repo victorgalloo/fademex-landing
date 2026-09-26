@@ -7,7 +7,7 @@ import { Reveal } from '@/lib/hooks'
 import { ButtonLink, Container, CtaBlock, PageHero, SectionLabel, headingClass } from '@/components/ui'
 
 const STATS = [
-  { value: 'Gran escala', label: 'Capacidad instalada' },
+  { value: '8.4 MW', label: 'Capacidad instalada' },
   { value: '150+', label: 'Proyectos completados' },
   { value: '20+', label: 'Estados cubiertos' },
 ]
@@ -15,23 +15,23 @@ const STATS = [
 const HIGHLIGHTS = [
   {
     sector: 'Industrial',
-    title: 'Industria de cuero y calzado',
+    title: 'Fábrica de cuero y calzado',
     location: 'León, Gto.',
-    desc: 'Sistema de 500 kWp con reducción significativa en costos energéticos.',
+    desc: 'Sistema de 500 kWp sobre la nave de producción, con reducción significativa en costos de energía.',
     tags: ['500 kWp', '−CO₂'],
   },
   {
     sector: 'Comercial',
-    title: 'Proyecto comercial',
+    title: 'Inmueble comercial',
     location: 'Ciudad de México',
-    desc: 'Instalación de 250 kWp con encendido inmediato, ahorrando el 88% en costos de energía.',
+    desc: 'Instalación de 250 kWp que redujo el 88% del costo de energía del inmueble.',
     tags: ['250 kWp', '88% ahorro'],
   },
   {
     sector: 'Industrial',
     title: 'Planta de ensamblaje',
     location: 'Aguascalientes, Ags.',
-    desc: 'Planta de ensamblaje con 500 kWp, logrando un ahorro del 99% en costos de energía.',
+    desc: 'Sistema de 500 kWp dimensionado sobre el consumo real de la planta: 99% de ahorro en costos de energía.',
     tags: ['500 kWp', '99% ahorro'],
   },
 ]
@@ -43,15 +43,14 @@ export default function ProyectosPage() {
 
       <Reveal>
         <PageHero
-          label="Cobertura nacional"
+          label="Casos de éxito"
           title={
             <>
-              Red de proyectos
-              <br />
-              activos.
+              Proyectos de energía
+              solar industrial.
             </>
           }
-          intro="Monitoreamos nuestros proyectos en tiempo real desde nuestro Centro de Control."
+          intro="Plantas y comercios en el Bajío, el norte y el centro de México. Monitoreamos cada sistema en tiempo real desde nuestro Centro de Control en León."
         />
       </Reveal>
 
@@ -78,7 +77,7 @@ export default function ProyectosPage() {
             <Reveal className="lg:col-span-7">
               <SectionLabel className="mb-8">Mapa de proyectos en operación</SectionLabel>
               <h2 className={headingClass}>
-                Distribuidos estratégicamente en todo México, con monitoreo continuo.
+                León, Irapuato, Aguascalientes, Querétaro, Guadalajara, Ciudad de México y Monterrey.
               </h2>
             </Reveal>
             <Reveal delay={100} className="lg:col-span-5 lg:justify-self-end">
@@ -127,10 +126,10 @@ export default function ProyectosPage() {
         <Container>
           <Reveal>
             <CtaBlock
-              title="¿Listo para ser parte de nuestra red?"
-              text="Únete a más de 150 empresas que ya confiaron en FADEMEX para transformar su infraestructura energética."
+              title="Tu planta puede ser el siguiente caso."
+              text="Más de 150 empresas ya generan parte de su energía con FADEMEX. Empezamos por revisar tus recibos de CFE."
             >
-              <ButtonLink href="/contacto" variant="light">Iniciar mi proyecto</ButtonLink>
+              <ButtonLink href="/contacto" variant="light">Solicitar análisis de consumo</ButtonLink>
               <ButtonLink href="/ingenieria" variant="ghost-light">Ver metodología</ButtonLink>
             </CtaBlock>
           </Reveal>

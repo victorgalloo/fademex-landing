@@ -9,26 +9,26 @@ const ADVANTAGES = [
   {
     metric: '30 años',
     title: 'Garantía de generación',
-    subtitle: 'Generation Performance',
-    desc: 'Aseguramos contractualmente que tu sistema producirá energía por encima del 85% incluso después de tres décadas de operación continua.',
+    subtitle: 'Por contrato',
+    desc: 'Tu sistema seguirá produciendo al menos el 85% de su capacidad después de 30 años de operación continua. Queda por escrito.',
   },
   {
     metric: '0%',
     title: 'Financiamiento directo',
-    subtitle: 'Direct Capital Access',
-    desc: 'Elimina la barrera de entrada. Modelos de financiamiento directo que permiten que el ahorro energético pague la infraestructura.',
+    subtitle: 'Sin banco de por medio',
+    desc: 'Financiamos el sistema nosotros mismos. El dinero que dejas de pagar a CFE cubre la inversión mes a mes, sin descapitalizar a tu empresa.',
   },
   {
     metric: '24 meses',
-    title: 'Mantenimiento integral',
-    subtitle: 'Full Service O&M',
-    desc: 'Dos años de operación y mantenimiento (O&M) incluidos. Limpieza, termografía con drones y ajuste de torque sin costo adicional.',
+    title: 'Mantenimiento incluido',
+    subtitle: 'Operación y mantenimiento',
+    desc: 'Durante los primeros dos años limpiamos los módulos, hacemos termografía con dron para detectar fallas y reapretamos conexiones. Sin costo adicional.',
   },
   {
-    metric: '100%',
-    title: 'Plug & Play',
-    subtitle: 'Seamless Integration',
-    desc: 'Interconexión sin fricción con la red de CFE. Nos encargamos de toda la gestoría, trámites y certificación UVIE.',
+    metric: 'Llave en mano',
+    title: 'Trámites con CFE',
+    subtitle: 'Interconexión y UVIE',
+    desc: 'Gestionamos la solicitud de interconexión con CFE, el medidor bidireccional y la verificación de la UVIE. Tú recibes el sistema funcionando.',
   },
 ]
 
@@ -39,15 +39,14 @@ export default function SolucionesPage() {
 
       <Reveal>
         <PageHero
-          label="Ventajas competitivas"
+          label="Ventajas"
           title={
             <>
-              Ingeniería de precisión.
-              <br />
-              Resultados garantizados.
+              Financiamiento, garantía
+              y mantenimiento en un contrato.
             </>
           }
-          intro="No solo instalamos paneles: desplegamos infraestructura energética crítica diseñada para durar décadas bajo condiciones extremas."
+          intro="Un sistema solar industrial trabaja 25 años o más. Estos son los cuatro compromisos que firmamos para que tus paneles solares rindan todo ese tiempo."
         >
           <ButtonLink href="/contacto">Agenda consultoría</ButtonLink>
           <ButtonLink href="/servicios" variant="ghost">Ver servicios</ButtonLink>
@@ -61,7 +60,7 @@ export default function SolucionesPage() {
             <div className="aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden rounded-[40px] md:rounded-orb">
               <img
                 src="/hero-solar.png"
-                alt="Planta industrial con arreglo solar en el techo"
+                alt="Planta industrial con paneles solares instalados en el techo"
                 className="w-full h-full object-cover object-[50%_60%]"
               />
             </div>
@@ -73,7 +72,7 @@ export default function SolucionesPage() {
       <section className="py-10 md:py-16">
         <Container>
           <Reveal>
-            <SectionLabel className="mb-10">Cuatro compromisos</SectionLabel>
+            <SectionLabel className="mb-10">Lo que firmamos contigo</SectionLabel>
           </Reveal>
           <div className="border-t border-carbon">
             {ADVANTAGES.map((item, i) => (
@@ -98,10 +97,10 @@ export default function SolucionesPage() {
         <Container>
           <Reveal>
             <CtaBlock
-              title="¿Listo para transformar tu infraestructura energética?"
-              text="Agenda una sesión técnica con nuestros ingenieros para evaluar tu consumo y diseñar una solución personalizada."
+              title="¿Cuánto puedes ahorrar en tu planta?"
+              text="Con tus recibos de CFE calculamos el tamaño del sistema, el ahorro mensual y el retorno de inversión. Luego decides."
             >
-              <ButtonLink href="/contacto" variant="light">Iniciar proyecto</ButtonLink>
+              <ButtonLink href="/contacto" variant="light">Solicitar análisis de consumo</ButtonLink>
               <ButtonLink href="/proyectos" variant="ghost-light">Ver proyectos realizados</ButtonLink>
             </CtaBlock>
           </Reveal>

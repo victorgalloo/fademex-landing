@@ -19,7 +19,7 @@ const STATS = [
   { value: '8.4', unit: 'MW', label: 'Capacidad instalada' },
   { value: '150+', unit: '', label: 'Proyectos completados' },
   { value: '30', unit: 'años', label: 'Garantía de generación' },
-  { value: '24/7', unit: '', label: 'Monitoreo NOC' },
+  { value: '24/7', unit: '', label: 'Monitoreo de cada sistema' },
 ]
 
 // Divisores verticales: 2 columnas en móvil, 4 en escritorio
@@ -27,33 +27,33 @@ const STAT_DIVIDERS = ['', 'border-l pl-4 lg:pl-6', 'lg:border-l lg:pl-6', 'bord
 
 const CERTIFICATIONS = [
   'ISO 9001',
-  'Fabricantes Tier 1',
-  'Estándares UL',
-  'Monitoreo NOC 24/7',
+  'Fabricantes Tier 1 BNEF',
+  'Normas IEC y UL',
+  'Interconexión CFE',
   'Zero Export',
-  'Peak Shaving',
+  'Peak shaving',
 ]
 
 const ADVANTAGES = [
   {
     metric: '30 años',
     title: 'Garantía de generación',
-    desc: 'Aseguramos contractualmente que tu sistema producirá energía por encima del 85% incluso después de tres décadas de operación continua.',
+    desc: 'Tu sistema seguirá produciendo al menos el 85% de su capacidad después de 30 años de operación. Queda por escrito en el contrato.',
   },
   {
     metric: '0%',
     title: 'Financiamiento directo',
-    desc: 'Elimina la barrera de entrada. Modelos de financiamiento directo que permiten que el ahorro energético pague la infraestructura.',
+    desc: 'Financiamos el sistema nosotros mismos, para que lo que dejas de pagar a CFE cubra la inversión mes a mes.',
   },
   {
     metric: '24 meses',
-    title: 'Mantenimiento integral',
-    desc: 'Dos años de operación y mantenimiento (O&M) incluidos. Limpieza, termografía con drones y ajuste de torque sin costo adicional.',
+    title: 'Mantenimiento incluido',
+    desc: 'Dos años de operación y mantenimiento sin costo: limpieza de módulos, termografía con dron y reapriete de conexiones.',
   },
   {
-    metric: '100%',
-    title: 'Plug & Play',
-    desc: 'Interconexión sin fricción con la red de CFE. Nos encargamos de toda la gestoría, trámites y certificación UVIE.',
+    metric: 'Llave en mano',
+    title: 'Trámites con CFE',
+    desc: 'Gestionamos la interconexión con CFE y la verificación de la UVIE. Tú no haces filas ni llenas formatos.',
   },
 ]
 
@@ -62,35 +62,35 @@ const TECHNOLOGY = [
     title: 'Paneles N-Type TOPCon',
     meta: '22.8%',
     content:
-      'Módulos de 580 W a 660 W de fabricantes Tier 1 clasificados por Bloomberg NEF, con degradación anual menor a 0.4% garantizada por 30 años.',
+      'Módulos de 580 W a 660 W de fabricantes Tier 1 de BloombergNEF, certificados IEC 61215 e IEC 61730, con degradación anual menor a 0.4%.',
   },
   {
-    title: 'Inversores y conversión',
-    meta: 'IEC · UL',
+    title: 'Inversores',
+    meta: 'Código de Red',
     content:
-      'Inversores Fronius, Huawei y SMA seleccionados por eficiencia y compatibilidad con Código de Red. Cumplen IEC 61215, IEC 61730 y estándares UL.',
+      'Inversores Fronius, Huawei y SMA que cumplen los requisitos del Código de Red y convierten la energía de los paneles con pérdidas mínimas.',
   },
   {
-    title: 'Almacenamiento LFP',
-    meta: '280 Ah',
+    title: 'Baterías LFP',
+    meta: 'Peak shaving',
     content:
-      'Celdas prismáticas LFP para peak shaving, continuidad operativa y protección ante variaciones de voltaje en equipos críticos.',
+      'Baterías de litio ferrofosfato que recortan tus picos de demanda, respaldan equipos críticos ante cortes y estabilizan el voltaje.',
   },
   {
     title: 'Monitoreo en tiempo real',
-    meta: '20 ms',
+    meta: '24/7',
     content:
-      'Centro de control operando 24/7 con alertas automáticas y análisis predictivo de fallas desde nuestro Centro de Operaciones.',
+      'Vemos la producción de tu sistema minuto a minuto y recibimos alertas si algo baja su rendimiento, antes de que lo notes en el recibo.',
   },
 ]
 
 const SOLUTIONS = [
-  { title: 'Soluciones', desc: 'Garantía de 30 años, financiamiento 0%, mantenimiento integral y plug & play.', href: '/soluciones' },
-  { title: 'Servicios', desc: 'Energía solar, baterías, tecnología lumínica y proyectos especiales.', href: '/servicios' },
-  { title: 'Tecnología', desc: 'Componentes Tier 1, monitoreo 24/7 y certificaciones internacionales.', href: '/tecnologia' },
-  { title: 'Proyectos', desc: 'Proyectos instalados en toda la República Mexicana.', href: '/proyectos' },
-  { title: 'Ingeniería', desc: 'Proceso certificado en 4 fases: auditoría, diseño, procura y ejecución.', href: '/ingenieria' },
-  { title: 'Contacto', desc: 'Habla con nuestros ingenieros y obtén una propuesta personalizada.', href: '/contacto' },
+  { title: 'Soluciones', desc: 'Garantía de 30 años, financiamiento directo y dos años de mantenimiento incluidos.', href: '/soluciones' },
+  { title: 'Servicios', desc: 'Instalación de paneles solares comerciales e industriales, y baterías para reducir la demanda.', href: '/servicios' },
+  { title: 'Tecnología', desc: 'Paneles N-Type TOPCon, inversores y monitoreo: especificaciones y certificaciones.', href: '/tecnologia' },
+  { title: 'Proyectos', desc: 'Plantas en León, Aguascalientes, Querétaro, Monterrey y más, con su capacidad y su ahorro.', href: '/proyectos' },
+  { title: 'Ingeniería', desc: 'Cuatro fases: auditoría energética, diseño, procura e instalación con interconexión a CFE.', href: '/ingenieria' },
+  { title: 'Contacto', desc: 'Cuéntanos tu consumo y agenda una sesión técnica con un ingeniero.', href: '/contacto' },
 ]
 
 export default function Home() {
@@ -111,19 +111,25 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
             <div className="max-w-2xl">
               <Reveal>
-                <SectionLabel tone="light" className="mb-6">Energía solar industrial · México</SectionLabel>
+                <SectionLabel tone="light" className="mb-6">Energía solar industrial · León, Gto.</SectionLabel>
               </Reveal>
               <Reveal delay={100}>
-                <h1 className={`${displayClass} text-white mb-8`}>
-                  Energía que transforma
-                  <br />
-                  la industria mexicana.
+                <h1 className={`${displayClass} text-white mb-6`}>
+                  Paneles solares industriales
+                  que bajan tu recibo de CFE.
                 </h1>
+              </Reveal>
+              <Reveal delay={150}>
+                <p className="text-base leading-[1.4] text-white/80 max-w-lg mb-8">
+                  Diseñamos, instalamos y operamos sistemas solares y baterías para
+                  plantas en el Bajío y todo México. Primero medimos tu consumo;
+                  después te decimos cuánto vas a ahorrar.
+                </p>
               </Reveal>
               <Reveal delay={200}>
                 <div className="flex flex-wrap gap-2">
-                  <ButtonLink href="#contacto" variant="light">Inicia tu proyecto</ButtonLink>
-                  <ButtonLink href="/soluciones" variant="ghost-light">Ver soluciones</ButtonLink>
+                  <ButtonLink href="#contacto" variant="light">Solicitar análisis de consumo</ButtonLink>
+                  <ButtonLink href="/proyectos" variant="ghost-light">Ver proyectos</ButtonLink>
                 </div>
               </Reveal>
             </div>
@@ -178,21 +184,26 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-16">
             <div className="lg:col-span-7">
               <Reveal>
-                <SectionLabel className="mb-8">Misión</SectionLabel>
+                <SectionLabel className="mb-8">El problema</SectionLabel>
                 <h2 className={displayClass}>
-                  Ingeniería de precisión.
-                  <br />
-                  Resultados garantizados.
+                  Tu recibo tiene dos cargos.
+                  Los paneles solo bajan uno.
                 </h2>
               </Reveal>
             </div>
             <div className="lg:col-span-5 lg:pt-14">
               <Reveal delay={100}>
-                <p className="text-base leading-[1.4] text-carbon/80 mb-6 max-w-md">
-                  No solo instalamos paneles: desplegamos infraestructura energética
-                  crítica diseñada para durar décadas bajo condiciones extremas.
+                <p className="text-base leading-[1.4] text-carbon/80 mb-4 max-w-md">
+                  En tarifa GDMTH pagas la energía que consumes (kWh) y tu demanda
+                  máxima (kW). Los paneles solares reducen los kWh durante el día, pero
+                  el cargo por demanda se fija en tus picos, que a menudo no coinciden
+                  con las horas de sol.
                 </p>
-                <ButtonLink href="/soluciones" variant="ghost">Conocer ventajas</ButtonLink>
+                <p className="text-base leading-[1.4] text-carbon/80 mb-6 max-w-md">
+                  Por eso diseñamos generación solar y baterías juntas, a partir de tus
+                  recibos y de mediciones en tu planta.
+                </p>
+                <ButtonLink href="/ingenieria" variant="ghost">Ver cómo trabajamos</ButtonLink>
               </Reveal>
             </div>
           </div>
@@ -219,7 +230,7 @@ export default function Home() {
               <div className="aspect-[4/5] w-full overflow-hidden rounded-[40px] md:rounded-orb">
                 <img
                   src="/hero-solar.png"
-                  alt="Arreglo de paneles solares en techo industrial"
+                  alt="Paneles solares N-Type instalados en el techo de una nave industrial"
                   className="w-full h-full object-cover object-left-bottom scale-[1.9] origin-bottom-left"
                 />
               </div>
@@ -228,11 +239,11 @@ export default function Home() {
               <Reveal>
                 <SectionLabel className="mb-8">Tecnología</SectionLabel>
                 <h2 className={`${headingClass} mb-6`}>
-                  Componentes Tier 1, auditados para cumplir estándares IEC y UL.
+                  Paneles solares Tier 1 y baterías con certificación IEC y UL.
                 </h2>
                 <p className="text-base leading-[1.4] text-carbon/80 mb-10 max-w-md">
-                  Cada inversor, panel y estructura se selecciona bajo criterios de
-                  eficiencia, durabilidad y certificación internacional.
+                  Elegimos cada panel, inversor y estructura por su historial de
+                  rendimiento en campo, no por ser el más barato del catálogo.
                 </p>
               </Reveal>
               <Reveal delay={100}>
@@ -254,15 +265,15 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
             <div className="lg:col-span-7">
               <Reveal>
-                <SectionLabel className="mb-8">Nuestras soluciones</SectionLabel>
-                <h2 className={displayClass}>Energía solar de grado industrial.</h2>
+                <SectionLabel className="mb-8">Qué hacemos</SectionLabel>
+                <h2 className={displayClass}>Energía solar para empresas, de la auditoría a la operación.</h2>
               </Reveal>
             </div>
             <div className="lg:col-span-5 lg:pt-14">
               <Reveal delay={100}>
                 <p className="text-base leading-[1.4] text-carbon/80 max-w-md">
-                  Soluciones integrales de energía renovable para empresas que buscan
-                  eficiencia y sostenibilidad.
+                  Cada sección explica una parte del proyecto. Empieza por la que más
+                  te preocupa: el costo, la tecnología o el proceso.
                 </p>
               </Reveal>
             </div>
@@ -301,14 +312,15 @@ export default function Home() {
             <div className="lg:col-span-7">
               <Reveal>
                 <SectionLabel className="mb-8">Presencia nacional</SectionLabel>
-                <h2 className={displayClass}>Proyectos en toda la República.</h2>
+                <h2 className={displayClass}>Proyectos de energía solar industrial en México.</h2>
               </Reveal>
             </div>
             <div className="lg:col-span-5 lg:pt-14">
               <Reveal delay={100}>
                 <p className="text-base leading-[1.4] text-carbon/80 max-w-md">
-                  Proyectos industriales y comerciales a lo largo de México, monitoreados
-                  en tiempo real desde nuestro Centro de Operaciones.
+                  León, Irapuato, Aguascalientes, Querétaro, Guadalajara, Ciudad de México
+                  y Monterrey. Monitoreamos cada sistema desde nuestro Centro de
+                  Operaciones en León.
                 </p>
               </Reveal>
             </div>
@@ -328,10 +340,10 @@ export default function Home() {
             <div className="lg:col-span-5">
               <Reveal>
                 <SectionLabel className="mb-8">Contacto</SectionLabel>
-                <h2 className={`${displayClass} mb-6`}>Comienza la transición.</h2>
+                <h2 className={`${displayClass} mb-6`}>Calcula tu ahorro con datos reales.</h2>
                 <p className="text-base leading-[1.4] text-carbon/80 mb-10 max-w-sm">
-                  Agenda una sesión técnica con nuestros ingenieros senior. Respondemos
-                  en menos de 24 horas.
+                  Cuéntanos tu tarifa y tu consumo. Un ingeniero revisa tu caso y te
+                  contacta en menos de 24 horas para agendar una sesión técnica.
                 </p>
                 <dl className="border-t border-carbon/20 text-sm">
                   {[

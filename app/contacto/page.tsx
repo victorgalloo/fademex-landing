@@ -20,15 +20,14 @@ export default function ContactoPage() {
 
       <Reveal>
         <PageHero
-          label="Contacto directo"
+          label="Contacto"
           title={
             <>
-              Comienza la
-              <br />
-              transición.
+              Cotiza paneles solares
+              para tu empresa.
             </>
           }
-          intro="Agenda una sesión técnica con nuestros ingenieros senior. Te responderemos en menos de 24 horas."
+          intro="Un ingeniero revisa tu caso y te contacta en menos de 24 horas hábiles para agendar una sesión técnica."
         />
       </Reveal>
 
@@ -61,9 +60,10 @@ export default function ContactoPage() {
             <div className="lg:col-span-7">
               <Reveal delay={100}>
                 <div className="bg-white rounded-xl p-[22px] md:p-10">
-                  <h2 className={`${headingClass} mb-3`}>Solicita una consultoría.</h2>
+                  <h2 className={`${headingClass} mb-3`}>Cuéntanos de tu planta.</h2>
                   <p className="text-sm leading-[1.4] text-carbon/70 mb-10">
-                    Completa el formulario y un ingeniero se pondrá en contacto contigo.
+                    Mientras más datos compartas (tarifa de CFE, consumo mensual, ubicación),
+                    más útil será la primera conversación.
                   </p>
                   <ContactForm />
                 </div>

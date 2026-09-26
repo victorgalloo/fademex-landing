@@ -117,7 +117,7 @@ export default function ContactForm() {
       </div>
 
       <div className="space-y-2">
-        <label className="block text-label uppercase text-carbon">Detalles del Proyecto</label>
+        <label className="block text-label uppercase text-carbon">Tu planta y tu consumo</label>
         <textarea
           rows={4}
           name="mensaje"
@@ -125,7 +125,7 @@ export default function ContactForm() {
           onChange={handleChange}
           required
           className="w-full bg-white border border-carbon/20 rounded-xl px-4 py-3.5 text-base text-carbon placeholder:text-mercury focus:border-carbon focus:outline-none transition-colors resize-none"
-          placeholder="Consumo actual, ubicación, objetivos..."
+          placeholder="Tarifa de CFE, consumo mensual aproximado, ubicación de la planta…"
         />
       </div>
       {status === 'success' && (
@@ -145,7 +145,7 @@ export default function ContactForm() {
         disabled={status === 'loading'}
         className="inline-flex items-center justify-center rounded-full bg-carbon hover:bg-onyx text-white px-[22px] py-[18px] text-sm leading-none transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {status === 'loading' ? 'Enviando…' : 'Solicitar propuesta técnica'}
+        {status === 'loading' ? 'Enviando…' : 'Solicitar análisis de consumo'}
       </button>
     </form>
   )

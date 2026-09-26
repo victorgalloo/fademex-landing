@@ -6,19 +6,19 @@ import { Reveal } from '@/lib/hooks'
 import { ButtonLink, Container, CtaBlock, PageHero, SectionLabel, headingClass } from '@/components/ui'
 
 const TECHNICAL_SPECS = [
-  { label: 'Eficiencia panel', val: '22.8%', desc: 'N-Type TOPCon Technology' },
+  { label: 'Eficiencia del panel', val: '22.8%', desc: 'Celdas N-Type TOPCon' },
   { label: 'Degradación anual', val: '<0.4%', desc: 'Garantizada por 30 años' },
-  { label: 'Latencia monitoreo', val: '20 ms', desc: 'Actualización en tiempo real' },
-  { label: 'Densidad batería', val: '280 Ah', desc: 'LFP Prismatic Cells' },
+  { label: 'Latencia del monitoreo', val: '20 ms', desc: 'Lecturas en tiempo real' },
+  { label: 'Capacidad de celda', val: '280 Ah', desc: 'Celdas prismáticas LFP' },
 ]
 
 const CERTIFICATIONS = [
   'ISO 9001',
-  'Fabricantes Tier 1',
-  'Monitoreo NOC 24/7',
-  'Zero Export',
-  'Peak Shaving',
+  'Fabricantes Tier 1 BNEF',
+  'IEC 61215 · IEC 61730',
   'Estándares UL',
+  'Código de Red',
+  'Zero Export',
 ]
 
 // Curva de generación diaria (valores fijos para evitar diferencias de hidratación)
@@ -40,15 +40,14 @@ export default function TecnologiaPage() {
 
       <Reveal>
         <PageHero
-          label="Tecnología de vanguardia"
+          label="Tecnología"
           title={
             <>
-              Especificaciones
-              <br />
-              técnicas.
+              Paneles solares Tier 1
+              y sus especificaciones.
             </>
           }
-          intro="Utilizamos componentes Tier 1 clasificados por Bloomberg NEF. Cada inversor, panel y estructura es auditado para cumplir con estándares internacionales IEC y UL."
+          intro="Trabajamos con fabricantes de la lista Tier 1 de BloombergNEF. Cada panel, inversor y estructura que instalamos cumple normas IEC y UL."
         />
       </Reveal>
 
@@ -70,9 +69,10 @@ export default function TecnologiaPage() {
             <div className="lg:col-span-5">
               <Reveal>
                 <SectionLabel className="mb-8">Componentes</SectionLabel>
-                <h2 className={`${headingClass} mb-6`}>Seleccionados bajo criterios rigurosos.</h2>
+                <h2 className={`${headingClass} mb-6`}>Lo que instalamos en tu techo.</h2>
                 <p className="text-base leading-[1.4] text-carbon/80 mb-10">
-                  Eficiencia, durabilidad y certificación internacional en cada componente.
+                  Valores de referencia de los equipos que especificamos con más frecuencia.
+                  Cada proyecto recibe las fichas técnicas de sus componentes.
                 </p>
               </Reveal>
               <Reveal delay={100}>
@@ -123,7 +123,7 @@ export default function TecnologiaPage() {
                   <div className="h-full bg-white rounded-xl p-[22px] md:p-8">
                     <h3 className="text-base font-normal mb-3">Monitoreo en tiempo real</h3>
                     <p className="text-sm leading-[1.4] text-carbon/70">
-                      Sistema de monitoreo 24/7 con alertas automáticas y análisis predictivo de fallas.
+                      Vemos la producción de tu sistema las 24 horas y recibimos alertas si algo baja su rendimiento.
                     </p>
                   </div>
                 </Reveal>
@@ -131,7 +131,7 @@ export default function TecnologiaPage() {
                   <div className="h-full bg-white rounded-xl p-[22px] md:p-8">
                     <h3 className="text-base font-normal mb-3">Certificaciones internacionales</h3>
                     <p className="text-sm leading-[1.4] text-carbon/70">
-                      Todos nuestros componentes cumplen con IEC 61215, IEC 61730 y estándares UL.
+                      Paneles certificados IEC 61215 e IEC 61730; inversores y estructuras bajo estándares UL.
                     </p>
                   </div>
                 </Reveal>
@@ -145,10 +145,10 @@ export default function TecnologiaPage() {
         <Container>
           <Reveal>
             <CtaBlock
-              title="¿Quieres conocer más detalles técnicos?"
-              text="Solicita nuestras especificaciones técnicas completas o agenda una sesión con nuestros ingenieros."
+              title="¿Tu equipo técnico necesita las fichas completas?"
+              text="Te enviamos las hojas de datos de cada componente o agendamos una revisión con nuestros ingenieros."
             >
-              <ButtonLink href="/contacto" variant="light">Consultar con un ingeniero</ButtonLink>
+              <ButtonLink href="/contacto" variant="light">Solicitar fichas técnicas</ButtonLink>
               <ButtonLink href="/servicios" variant="ghost-light">Ver catálogo de servicios</ButtonLink>
             </CtaBlock>
           </Reveal>
