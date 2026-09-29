@@ -2,35 +2,36 @@
 
 import { useState, useEffect, useRef, ReactNode } from 'react'
 
+type RevealState = 'static' | 'hidden' | 'shown'
+
+// El contenido se renderiza visible por defecto (SSR, sin JS, pestañas en
+// segundo plano). Solo los elementos que arrancan fuera de la pantalla se
+// ocultan y aparecen al entrar en el viewport.
 export const useScrollReveal = (threshold = 0.1) => {
-  const [isVisible, setIsVisible] = useState(false)
+  const [state, setState] = useState<RevealState>('static')
   const domRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const el = domRef.current
+    if (!el) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    if (el.getBoundingClientRect().top < window.innerHeight) return
+
+    setState('hidden')
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true)
-          }
-        })
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setState('shown')
+          observer.disconnect()
+        }
       },
-      { threshold }
+      { threshold, rootMargin: '0px 0px -40px 0px' }
     )
-
-    const current = domRef.current
-    if (current) {
-      observer.observe(current)
-    }
-
-    return () => {
-      if (current) {
-        observer.unobserve(current)
-      }
-    }
+    observer.observe(el)
+    return () => observer.disconnect()
   }, [threshold])
 
-  return [domRef, isVisible] as const
+  return [domRef, state] as const
 }
 
 interface RevealProps {
@@ -40,18 +41,19 @@ interface RevealProps {
 }
 
 export const Reveal = ({ children, className = '', delay = 0 }: RevealProps) => {
-  const [ref, isVisible] = useScrollReveal()
-  const delayStyle = { transitionDelay: `${delay}ms` }
+  const [ref, state] = useScrollReveal()
+  const stateClass =
+    state === 'hidden'
+      ? 'opacity-0 translate-y-3'
+      : state === 'shown'
+        ? 'opacity-100 translate-y-0 transition-[opacity,transform] duration-500 ease-out'
+        : ''
 
   return (
     <div
       ref={ref}
-      style={delayStyle}
-      className={`transition-all duration-1000 ease-out transform ${
-        isVisible
-          ? 'opacity-100 translate-y-0 blur-0'
-          : 'opacity-0 translate-y-12 blur-sm'
-      } ${className}`}
+      style={state === 'shown' ? { transitionDelay: `${delay}ms` } : undefined}
+      className={`${stateClass} ${className}`}
     >
       {children}
     </div>

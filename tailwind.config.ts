@@ -9,9 +9,28 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'sans': ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'label': ['12px', { lineHeight: '1.3', letterSpacing: '0.12em' }],
+        'subheading': ['22px', { lineHeight: '1.3', letterSpacing: '0.01em' }],
+        'heading': ['32px', { lineHeight: '1.2', letterSpacing: '0.01em' }],
+        'display': ['52px', { lineHeight: '1', letterSpacing: '0.01em' }],
+      },
+      borderRadius: {
+        'orb': '80px',
+      },
+      maxWidth: {
+        'page': '1200px',
       },
       colors: {
+        // Sistema T1: lienzo vellum, superficies blancas, texto carbón. Sin acentos.
+        vellum: '#f0efe9',
+        paper: '#ffffff',
+        carbon: '#322d2a',
+        onyx: '#0f0e12',
+        mercury: '#8b8b8b',
+        // Tokens heredados (admin y portal)
         canvas: '#F7F8F3',
         'canvas-alt': '#FFFFFF',
         ink: '#1A1C1D',

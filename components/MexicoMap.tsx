@@ -1,8 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import Map, { Marker, Popup } from 'react-map-gl/mapbox'
-import 'mapbox-gl/dist/mapbox-gl.css'
+import Map, { Marker, Popup } from 'react-map-gl/maplibre'
+import 'maplibre-gl/dist/maplibre-gl.css'
+
+// Mapa base monocromático sin token (CARTO Positron)
+const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'
+
+// Centro-norte de México, donde están los proyectos (oeste-sur, este-norte)
+const MEXICO_BOUNDS: [[number, number], [number, number]] = [[-108.5, 17.8], [-95.5, 27.2]]
 
 interface ProjectPin {
     id: string
@@ -76,16 +82,16 @@ export default function MexicoMap() {
     ]
 
     return (
-        <div className="relative w-full h-full rounded-lg overflow-hidden">
+        <div className="w-full h-full flex flex-col gap-3">
+        <div className="relative flex-1 min-h-0 rounded-[40px] md:rounded-orb overflow-hidden bg-white">
             <Map
-                mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_TOKEN || 'pk.eyJ1IjoiZmFkZW1leCIsImEiOiJjbTRyOGw4OTkwMDFqMmxzYmptcnVpNTFmIn0.dummy'}
                 initialViewState={{
-                    longitude: -102.5528,
-                    latitude: 23.6345,
-                    zoom: 4.5,
+                    bounds: MEXICO_BOUNDS,
+                    fitBoundsOptions: { padding: 24 },
                 }}
+                attributionControl={false}
                 style={{ width: '100%', height: '100%' }}
-                mapStyle="mapbox://styles/mapbox/dark-v11"
+                mapStyle={MAP_STYLE}
                 interactive={true}
                 scrollZoom={false}
                 dragPan={true}
@@ -104,12 +110,8 @@ export default function MexicoMap() {
                         }}
                     >
                         <div className="relative cursor-pointer group">
-                            {/* Pulse ring */}
-                            <div className="absolute inset-0 -m-2 flex items-center justify-center animate-ping opacity-40">
-                                <div className="w-6 h-6 rounded-full bg-accent-gold" />
-                            </div>
-                            {/* Pin dot */}
-                            <div className="relative w-4 h-4 rounded-full bg-accent-gold border-2 border-white shadow-lg transition-transform duration-300 group-hover:scale-150" />
+                            {/* Indicador cuadrado */}
+                            <div className="w-3 h-3 bg-carbon border-2 border-white transition-transform duration-300 group-hover:scale-150" />
                         </div>
                     </Marker>
                 ))}
@@ -123,15 +125,15 @@ export default function MexicoMap() {
                         closeButton={false}
                         className="mapbox-popup"
                     >
-                        <div className="bg-ink/95 backdrop-blur-sm text-canvas px-4 py-3 rounded-lg border border-accent-gold/30 min-w-[200px]">
-                            <div className="text-xs uppercase tracking-wider text-accent-gold font-bold mb-1">
+                        <div className="bg-carbon text-white px-4 py-3 rounded-xl min-w-[200px]">
+                            <div className="text-label uppercase text-white/60 mb-1">
                                 {popupInfo.city}
                             </div>
-                            <div className="text-sm font-medium mb-1">
+                            <div className="text-sm mb-1">
                                 {popupInfo.type}
                             </div>
                             {popupInfo.stats && (
-                                <div className="text-xs text-canvas/70">
+                                <div className="text-xs text-white/70">
                                     {popupInfo.stats}
                                 </div>
                             )}
@@ -139,6 +141,10 @@ export default function MexicoMap() {
                     </Popup>
                 )}
             </Map>
+        </div>
+        <p className="text-xs text-mercury text-right">
+            © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" className="hover:text-carbon">OpenStreetMap</a> · © <a href="https://carto.com/attributions" target="_blank" rel="noopener noreferrer" className="hover:text-carbon">CARTO</a>
+        </p>
         </div>
     )
 }

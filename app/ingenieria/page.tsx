@@ -2,229 +2,37 @@
 
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import IngenieriaSection from '@/components/sections/IngenieriaSection'
 import { Reveal } from '@/lib/hooks'
-import Link from 'next/link'
+import { Container, CtaBlock, CtaButtons, PageHero } from '@/components/ui'
 
 export default function IngenieriaPage() {
   return (
-    <div className="font-sans text-ink min-h-screen bg-canvas">
-      {/* Fixed Background Elements */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid-pattern opacity-40"></div>
-        <div className="absolute top-0 left-0 w-[720px] h-[720px] bg-highlight/20 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-[560px] h-[560px] bg-accent-gold/30 rounded-full blur-[140px] translate-x-1/3 translate-y-1/3"></div>
-      </div>
-
+    <div className="min-h-screen bg-vellum text-carbon">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center pt-32 pb-16 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 via-canvas to-canvas"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-highlight/15 via-transparent to-accent-gold/10 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-gold/30 to-transparent"></div>
+      <Reveal>
+        <PageHero
+          label="Ingeniería"
+          title="De la auditoría energética al primer kWh."
+          intro="Cuatro fases con entregables claros y un ingeniero responsable en cada una. Siempre sabes en qué punto está tu proyecto y qué sigue."
+        >
+          <CtaButtons context="ingenieria" />
+        </PageHero>
+      </Reveal>
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Reveal>
-              <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-accent-gold bg-accent-gold/20 text-ink text-[11px] font-semibold tracking-[0.15em] mb-8 uppercase shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-accent-gold mr-2.5 animate-pulse"></span>
-                Proceso Certificado
-              </div>
-            </Reveal>
+      <IngenieriaSection showIntro={false} />
 
-            <Reveal delay={100}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-ink mb-8 leading-[1]">
-                Metodología de
-                <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold-dark via-accent-gold to-highlight">
-                  Implementación
-                </span>
-              </h1>
-            </Reveal>
-
-            <Reveal delay={200}>
-              <p className="text-lg md:text-xl text-ink-light mb-10 max-w-3xl mx-auto leading-relaxed">
-                Un proceso estructurado y probado para garantizar la máxima eficiencia,
-                seguridad y retorno de inversión en cada proyecto.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Process Timeline */}
-      <section className="py-24 md:py-32 relative">
-        <div className="container mx-auto px-6">
+      <section className="py-10 md:py-12">
+        <Container>
           <Reveal>
-            <h2 className="text-center text-3xl font-bold text-ink mb-20">
-              Nuestro Proceso en 4 Fases
-            </h2>
+            <CtaBlock
+              title="Empieza por la auditoría."
+              text="Agenda una sesión técnica. Revisamos tus recibos de CFE y planeamos la visita de medición a tu planta."
+              context="ingenieria"
+            />
           </Reveal>
-
-          <div className="relative">
-            {/* Center Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-accent-gold/50 to-transparent hidden md:block"></div>
-
-            {[
-              {
-                step: '01',
-                title: 'Auditoría Energética',
-                desc: 'Análisis de patrones de consumo (Código de Red 2.0), termografía y modelado de sombras.',
-                details: [
-                  'Análisis histórico de recibos CFE',
-                  'Medición en sitio con analizadores de red',
-                  'Estudio de sombreado con drones',
-                  'Modelado 3D de la instalación',
-                ],
-              },
-              {
-                step: '02',
-                title: 'Ingeniería & Diseño',
-                desc: 'Diseño CAD/BIM de la estructura, selección de inversores y cálculo de retorno de inversión.',
-                details: [
-                  'Diseño estructural certificado',
-                  'Selección óptima de componentes',
-                  'Simulación de producción energética',
-                  'Análisis financiero y ROI',
-                ],
-              },
-              {
-                step: '03',
-                title: 'Procura & Logística',
-                desc: 'Importación directa de componentes Tier 1 para evitar intermediarios y asegurar garantía.',
-                details: [
-                  'Importación directa de fabricantes Tier 1',
-                  'Control de calidad en origen',
-                  'Logística especializada',
-                  'Seguro de mercancía incluido',
-                ],
-              },
-              {
-                step: '04',
-                title: 'Ejecución & Comisionamiento',
-                desc: 'Instalación certificada bajo estándares NOM-001-SEDE. Pruebas de aislamiento y encendido.',
-                details: [
-                  'Instalación por personal certificado',
-                  'Pruebas eléctricas completas',
-                  'Interconexión con CFE',
-                  'Capacitación al cliente',
-                ],
-              },
-            ].map((item, i) => (
-              <Reveal key={i} delay={i * 100}>
-                <div
-                  className={`flex flex-col md:flex-row items-center mb-16 ${i % 2 === 0 ? 'md:flex-row-reverse' : ''
-                    }`}
-                >
-                  <div className="md:w-1/2 p-8">
-                    <div
-                      className={`bg-canvas-alt border border-ink/8 p-8 rounded-2xl relative shadow-card hover:shadow-card-hover transition-all ${i % 2 === 0 ? 'text-left' : 'text-left md:text-right'
-                        }`}
-                    >
-                      <span className="absolute -top-4 bg-canvas-alt border border-accent-gold/30 px-3 py-1 rounded-lg text-accent-gold-dark text-sm font-bold shadow-sm">
-                        {item.step}
-                      </span>
-                      <h4 className="text-xl font-bold text-ink mb-2">
-                        {item.title}
-                      </h4>
-                      <p className="text-ink-light text-sm mb-6">{item.desc}</p>
-
-                      <ul className={`space-y-2 text-sm text-ink-light ${i % 2 === 0 ? '' : 'md:text-right'}`}>
-                        {item.details.map((detail, j) => (
-                          <li key={j} className="flex items-center gap-2">
-                            {i % 2 === 0 ? (
-                              <>
-                                <span className="w-1.5 h-1.5 rounded-full bg-accent-gold flex-shrink-0"></span>
-                                <span>{detail}</span>
-                              </>
-                            ) : (
-                              <>
-                                <span className="md:order-2 w-1.5 h-1.5 rounded-full bg-accent-gold flex-shrink-0"></span>
-                                <span className="md:order-1">{detail}</span>
-                              </>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="relative z-10">
-                    <div className="w-4 h-4 bg-ink border-2 border-accent-gold rounded-full shadow-[0_0_10px_rgba(255,215,0,0.8)]"></div>
-                  </div>
-                  <div className="md:w-1/2"></div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          {/* Additional Benefits */}
-          <div className="mt-32">
-            <Reveal>
-              <h3 className="text-center text-2xl font-bold text-ink mb-12">
-                Garantías y Soporte Post-Instalación
-              </h3>
-            </Reveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Reveal delay={100}>
-                <div className="bg-ink/5 border border-ink/10 rounded-xl p-6 hover:border-accent-gold/30 transition-all text-center">
-                  <div className="text-4xl font-bold text-accent-gold mb-2">24 meses</div>
-                  <h4 className="text-lg font-bold text-ink mb-2">O&M Incluido</h4>
-                  <p className="text-ink/70 text-sm">
-                    Operación y mantenimiento completo incluido en todos nuestros proyectos
-                  </p>
-                </div>
-              </Reveal>
-
-              <Reveal delay={200}>
-                <div className="bg-ink/5 border border-ink/10 rounded-xl p-6 hover:border-accent-gold/30 transition-all text-center">
-                  <div className="text-4xl font-bold text-accent-gold mb-2">30 años</div>
-                  <h4 className="text-lg font-bold text-ink mb-2">Garantía de Producción</h4>
-                  <p className="text-ink/70 text-sm">
-                    Garantizamos que tu sistema producirá energía por encima del 85%
-                  </p>
-                </div>
-              </Reveal>
-
-              <Reveal delay={300}>
-                <div className="bg-ink/5 border border-ink/10 rounded-xl p-6 hover:border-accent-gold/30 transition-all text-center">
-                  <div className="text-4xl font-bold text-accent-gold mb-2">24/7</div>
-                  <h4 className="text-lg font-bold text-ink mb-2">Monitoreo NOC</h4>
-                  <p className="text-ink/70 text-sm">
-                    Centro de control operando 24/7 con alertas en tiempo real
-                  </p>
-                </div>
-              </Reveal>
-            </div>
-          </div>
-
-          {/* CTA Section */}
-          <Reveal delay={400}>
-            <div className="mt-20 text-center bg-gradient-to-r from-accent-gold/10 via-white/70 to-white/80 border border-ink/10 rounded-3xl p-12 backdrop-blur-sm shadow-2xl">
-              <h3 className="text-3xl font-bold text-ink mb-4">
-                ¿Listo para comenzar tu proyecto?
-              </h3>
-              <p className="text-ink/70 mb-8 max-w-2xl mx-auto">
-                Agenda una sesión técnica con nuestros ingenieros senior para evaluar
-                tu instalación y diseñar una solución a la medida.
-              </p>
-              <div className="flex gap-4 justify-center flex-wrap">
-                <Link
-                  href="/contacto"
-                  className="px-8 py-4 bg-accent-gold hover:bg-highlight text-ink font-extrabold rounded-md transition-all shadow-[0_20px_40px_rgba(225,235,163,0.35)]"
-                >
-                  Agendar Consultoría
-                </Link>
-                <Link
-                  href="/proyectos"
-                  className="px-8 py-4 border border-ink/20 hover:bg-ink/5 text-ink font-semibold rounded-md transition-all"
-                >
-                  Ver Proyectos Realizados
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-        </div>
+        </Container>
       </section>
 
       <Footer />
